@@ -72,11 +72,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BabyQ/MyVideoTableViewController.m"
-            timestampString = "472361826.639718"
+            timestampString = "472816037.301364"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "197"
-            endingLineNumber = "197"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
             landmarkName = "-addRefreshKit"
             landmarkType = "5">
          </BreakpointContent>
@@ -120,11 +120,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BabyQ/EZLivePlayViewController.m"
-            timestampString = "472498524.643906"
+            timestampString = "472815311.637761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "166"
-            endingLineNumber = "166"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
             landmarkName = "-WifiStatedChanged"
             landmarkType = "5">
          </BreakpointContent>
@@ -136,11 +136,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BabyQ/EZLivePlayViewController.m"
-            timestampString = "472642826.661867"
+            timestampString = "472815311.637761"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "572"
-            endingLineNumber = "572"
+            startingLineNumber = "604"
+            endingLineNumber = "604"
             landmarkName = "-ptzViewShow:"
             landmarkType = "5">
          </BreakpointContent>

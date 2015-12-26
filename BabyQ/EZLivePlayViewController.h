@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface EZLivePlayViewController : UIViewController <UIGestureRecognizerDelegate>
+@interface EZLivePlayViewController : UIViewController <UIGestureRecognizerDelegate, UIScrollViewDelegate>
 
 @property (nonatomic, copy) NSString *cameraId;
 @property (nonatomic, copy) NSString *cameraName;

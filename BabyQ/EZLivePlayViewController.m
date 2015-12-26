@@ -72,6 +72,8 @@
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *localRecrodContraint;
 @property (nonatomic, weak) IBOutlet NSLayoutConstraint *toolBarContraint;
 
+@property (nonatomic, weak) IBOutlet UIScrollView *playScrollView;
+
 
 @end
 
@@ -81,6 +83,26 @@
 {
     [EZOpenSDK releasePlayer:_player];
 }
+
+- (void)centerScrollViewContents {
+    CGSize boundsSize = self.playScrollView.bounds.size;
+    CGRect contentsFrame = self.playerView.frame;
+    
+    if (contentsFrame.size.width < boundsSize.width) {
+        contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2.0f;
+    } else {
+        contentsFrame.origin.x = 0.0f;
+    }
+    
+    if (contentsFrame.size.height < boundsSize.height) {
+        contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0f;
+    } else {
+        contentsFrame.origin.y = 0.0f;
+    }
+    
+    self.playerView.frame = contentsFrame;
+}
+
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -98,6 +120,16 @@
     self.captureButton.enabled = NO;
     self.localRecordButton.enabled = NO;
     
+    // Tell the scroll view the size of the contents
+    self.playScrollView.contentSize = self.playerView.frame.size;
+    
+    self.playScrollView.minimumZoomScale = 1.0f;
+    self.playScrollView.maximumZoomScale = 2.0f;
+    self.playScrollView.zoomScale = 1;
+    
+    [self centerScrollViewContents];
+    
+    
     [EZOpenSDK getDeviceInfo:_cameraId comletion:^(EZDeviceInfo *deviceInfo, NSError *error) {
         if(deviceInfo.isSupportTalk)
         {
@@ -111,8 +143,8 @@
     
     _player = [EZPlayer createPlayerWithCameraId:_cameraId];
     _player.delegate = self;
-//    [_player setVideoLevel:EZVideoQualityLow];
-//    [self.qualityButton setTitle:@"流畅" forState:UIControlStateNormal];
+    [_player setVideoLevel:EZVideoQualityLow];
+    [self.qualityButton setTitle:@"流畅" forState:UIControlStateNormal];
     [_player setPlayerView:_playerView];
     [_player startRealPlay];
     
@@ -204,22 +236,22 @@
     self.ptzViewContraint.constant = self.bottomView.frame.size.height;
     self.talkViewContraint.constant = self.ptzViewContraint.constant;
     
-    UIPinchGestureRecognizer *pinchGestureRecongnizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(changeImage:)];
-    pinchGestureRecongnizer.delegate = self;
-    [_playerView setUserInteractionEnabled:YES];
-    [_playerView addGestureRecognizer:pinchGestureRecongnizer];
+//    UIPinchGestureRecognizer *pinchGestureRecongnizer = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(changeImage:)];
+//    pinchGestureRecongnizer.delegate = self;
+//    [_playerView setUserInteractionEnabled:YES];
+//    [_playerView addGestureRecognizer:pinchGestureRecongnizer];
 }
 
 - (void)changeImage:(UIPinchGestureRecognizer*)pinchGestureRecognizer {
         //[self.view bringSubviewToFront:pinchGestureRecognizer.view];
     
-        CGPoint location = [pinchGestureRecognizer locationInView:self.view];
-    
-        NSLog(@"location = %@", NSStringFromCGPoint(location));
-    
-        pinchGestureRecognizer.view.center = CGPointMake(location.x, location.y);
-        pinchGestureRecognizer.view.transform = CGAffineTransformScale(pinchGestureRecognizer.view.transform, pinchGestureRecognizer.scale, pinchGestureRecognizer.scale);
-        pinchGestureRecognizer.scale = 1;
+//        CGPoint location = [pinchGestureRecognizer locationInView:self.view];
+//    
+//        NSLog(@"location = %@", NSStringFromCGPoint(location));
+//    
+//        pinchGestureRecognizer.view.center = CGPointMake(location.x, location.y);
+//        pinchGestureRecognizer.view.transform = CGAffineTransformScale(pinchGestureRecognizer.view.transform, pinchGestureRecognizer.scale, pinchGestureRecognizer.scale);
+//        pinchGestureRecognizer.scale = 1;
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
@@ -732,6 +764,19 @@
     UIImageView *lineImageView4 = [UIView dd_instanceVerticalLine:20 color:[UIColor grayColor]];
     lineImageView4.frame = CGRectMake(averageWidth * 4, 7, lineImageView4.frame.size.width, lineImageView4.frame.size.height);
     [self.toolBar addSubview:lineImageView4];
+}
+
+#pragma mark - UIScrollViewDelegate
+
+- (UIView*)viewForZoomingInScrollView:(UIScrollView *)scrollView {
+    // Return the view that we want to zoom
+    return self.playerView;
+}
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView {
+    // The scroll view has zoomed, so we need to re-center the contents
+    NSLog(@"jeremy-------scrollViewDidZoom");
+    [self centerScrollViewContents];
 }
 
 @end

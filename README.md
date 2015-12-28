@@ -1,4 +1,4 @@
-# 开源中国 iOS [客户端](http://www.oschina.net/app/)
+
 
 ------
 
@@ -40,11 +40,3 @@ Xcode 6＋
 * TBXML：                                解析XML
 * TOWebViewController：                  内置浏览器 
 * TTTAttributedLabel：                   支持富文本显示的label
-
-
-## API 文档
-[http://osc_api.mydoc.io/](http://osc_api.mydoc.io/)
-
-
-## 开源协议
-OSChina iOS app is under the GPL license. See the LICENSE file for more details.

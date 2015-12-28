@@ -41,6 +41,15 @@
     _titleLabel.text = _cameraInfo.cameraName;
     [_titleLabel setBorderWidth:0.1f andColor:[UIColor grayColor]];
     
+    if(_cameraInfo.isOnline)
+    {
+        self.offlineIcon.hidden = YES;
+    }
+    else
+    {
+        self.offlineIcon.hidden = NO;
+    }
+    
     [_videoImageView setImageWithURL:[NSURL URLWithString:cameraInfo.picUrl] placeholderImage:[UIImage imageNamed:@"Cell-photo"]];
     
 //    [self.contentView dd_addSeparatorWithType:ViewSeparatorTypeBottom];

@@ -18,6 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *videoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (nonatomic, weak) IBOutlet UIButton *playButton;
+@property (nonatomic, weak) IBOutlet UIImageView *offlineIcon;
 
 //@property (strong, nonatomic) VideoListItem *videoListItem;
 

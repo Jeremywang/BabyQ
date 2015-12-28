@@ -239,6 +239,18 @@
     //判断当前网络状态
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
+    if(![camera isOnline])
+    {
+        UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"当前摄像头不在线，请观看其他摄像头" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
+        [alertController addAction:okAction];
+        
+        [self presentViewController:alertController animated:YES completion:nil];
+        
+    
+    }
+    else
+    {
     
     if ([Config getWifiMode]) {
         if ([appDelegate isWifi])
@@ -289,6 +301,7 @@
             
         }
 
+    }
     }
 
 }

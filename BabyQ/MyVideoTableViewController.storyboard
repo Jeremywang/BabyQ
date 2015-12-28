@@ -45,9 +45,13 @@
                                                 <action selector="go2Play:" destination="cHz-UH-OMr" eventType="touchUpInside" id="9Uu-6D-Tc3"/>
                                             </connections>
                                         </button>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="offline" translatesAutoresizingMaskIntoConstraints="NO" id="Adq-lJ-6kh">
+                                            <rect key="frame" x="567" y="36" width="28" height="28"/>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="TbD-Tf-giG" firstAttribute="top" secondItem="kzc-cV-y8D" secondAttribute="top" id="3ey-TM-663"/>
+                                        <constraint firstItem="Adq-lJ-6kh" firstAttribute="trailing" secondItem="d2k-f3-kTS" secondAttribute="trailing" id="4wT-vE-8rh"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="TbD-Tf-giG" secondAttribute="bottom" constant="-7.5" id="ERC-Qo-gNe"/>
                                         <constraint firstItem="d2k-f3-kTS" firstAttribute="leading" secondItem="aSW-Gp-gQW" secondAttribute="leadingMargin" constant="-3" id="Max-oH-prN"/>
                                         <constraint firstItem="d2k-f3-kTS" firstAttribute="centerX" secondItem="aSW-Gp-gQW" secondAttribute="centerX" id="QAy-F4-EJU"/>
@@ -55,12 +59,14 @@
                                         <constraint firstItem="TbD-Tf-giG" firstAttribute="trailing" secondItem="kzc-cV-y8D" secondAttribute="trailing" id="WxX-Vl-tLL"/>
                                         <constraint firstItem="d2k-f3-kTS" firstAttribute="trailing" secondItem="TbD-Tf-giG" secondAttribute="trailing" id="Z5u-Wy-LjE"/>
                                         <constraint firstItem="TbD-Tf-giG" firstAttribute="bottom" secondItem="kzc-cV-y8D" secondAttribute="bottom" id="cD8-rD-tsk"/>
+                                        <constraint firstItem="Adq-lJ-6kh" firstAttribute="top" secondItem="TbD-Tf-giG" secondAttribute="top" id="gcX-gC-F8G"/>
                                         <constraint firstItem="kzc-cV-y8D" firstAttribute="leading" secondItem="TbD-Tf-giG" secondAttribute="leading" id="lfk-c4-ctI"/>
                                         <constraint firstItem="d2k-f3-kTS" firstAttribute="leading" secondItem="kzc-cV-y8D" secondAttribute="leading" id="stc-Eh-2iF"/>
                                         <constraint firstItem="TbD-Tf-giG" firstAttribute="top" secondItem="d2k-f3-kTS" secondAttribute="bottom" id="uD5-14-pQB"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="offlineIcon" destination="Adq-lJ-6kh" id="NEH-Dc-owS"/>
                                     <outlet property="titleLabel" destination="d2k-f3-kTS" id="mOD-VX-GOM"/>
                                     <outlet property="videoImageView" destination="kzc-cV-y8D" id="FZd-Zb-hA3"/>
                                 </connections>
@@ -585,6 +591,7 @@
     <resources>
         <image name="VideoBackground.png" width="2001" height="3555"/>
         <image name="large_back_btn" width="10" height="19"/>
+        <image name="offline" width="28" height="28"/>
         <image name="picture_bg" width="61" height="93"/>
         <image name="play" width="54" height="54"/>
         <image name="play_close" width="50" height="50"/>

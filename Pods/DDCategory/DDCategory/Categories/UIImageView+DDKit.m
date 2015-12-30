@@ -2,26 +2,26 @@
 //  UIImageView+DDKit.m
 //  DDCategory
 //
-//  Created by DeJohn Dong on 15-3-20.
+//  Created by Diaoshu on 15-3-20.
 //  Copyright (c) 2015年 DDKit. All rights reserved.
 //
 
 #import "UIImageView+DDKit.h"
-#import "UIImageView+WebCache.h"
+#import <UIImageView+WebCache.h>
 
 @implementation UIImageView (DDKit)
 
 @end
 
 
-@implementation UIImageView (DDPlaceholder)
+@implementation UIImageView (Placeholder)
 
-- (void)sd_setImageWithURL:(NSURL *)url placeholderImageScale:(UIImage *)placeholder {
+- (void)sd_setImageWithURL:(NSURL *)url placeholderImageScale:(UIImage *)placeholder{
     placeholder = [self scaleImage:placeholder];
     [self sd_setImageWithURL:url placeholderImage:placeholder];
 }
 
-- (UIImage *)scaleImage:(UIImage *)originImage {
+- (UIImage *)scaleImage:(UIImage *)originImage{
     CGSize imageSize = self.frame.size;
     //判断图片尺寸是否小于UIImageView的尺寸
     if(imageSize.width <= originImage.size.width ||

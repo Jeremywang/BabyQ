@@ -19,6 +19,8 @@
 #import "Config.h"
 #import "LoginViewController.h"
 
+#import <AFNetworking.h>
+
 #define EZCameraListPageSize 10
 
 @interface MyVideoTableViewController ()
@@ -29,6 +31,12 @@
 
 @property (nonatomic) NSInteger currentPageIndex;
 
+//@property (nonatomic, copy) NSString *urlString;
+
+@property (nonatomic, copy) NSString *serverTime;
+
+@property (nonatomic, copy) NSString *accessTokenStr;
+
 
 @end
 
@@ -37,26 +45,30 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //_urlString = @"https://open.ys7.com/api/method";
+    
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
     if(!_cameraList)
         _cameraList = [NSMutableArray new];
     
-    if([GlobalKit shareKit].accessToken)
-    {
-        [EZOpenSDK setAccessToken:[GlobalKit shareKit].accessToken];
-        [self addRefreshKit];
-    }
-    else
-    {
-        [EZOpenSDK openLoginPage:^(EZAccessToken *accessToken) {
-            [[GlobalKit shareKit] setAccessToken:accessToken.accessToken];
-            [EZOpenSDK setAccessToken:accessToken.accessToken];
-            [self addRefreshKit];
-        }];
-        return;
-    }
+    [self GetServerTime];
+    
+//    if([GlobalKit shareKit].accessToken)
+//    {
+//        [EZOpenSDK setAccessToken:[GlobalKit shareKit].accessToken];
+//        [self addRefreshKit];
+//    }
+//    else
+//    {
+//        [EZOpenSDK openLoginPage:^(EZAccessToken *accessToken) {
+//            [[GlobalKit shareKit] setAccessToken:accessToken.accessToken];
+//            [EZOpenSDK setAccessToken:accessToken.accessToken];
+//            [self addRefreshKit];
+//        }];
+//        return;
+//    }
 
 //    [[GlobalKit shareKit] setAccessToken:@"at.5j9b2er63ueasm8s5smh567g8aw9qjej-7lgfcqc103-1ollfzi-klnn07z52"];
 //    [EZOpenSDK setAccessToken:@"at.5j9b2er63ueasm8s5smh567g8aw9qjej-7lgfcqc103-1ollfzi-klnn07z52"];
@@ -136,7 +148,7 @@
     
     //[cell setVideoListItem:[_dataArray objectAtIndex:indexPath.row]];
     
-    [cell setCameraInfo:[_cameraList dd_objectAtIndex:indexPath.row]];
+    [cell setCameraInfo:[_cameraList objectAtIndexCheck:indexPath.row]];
     cell.parentViewController = self;
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -236,6 +248,7 @@
 
 - (void)go2Play:(EZCameraInfo *)camera
 {
+    
     //判断当前网络状态
     AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 
@@ -304,6 +317,124 @@
     }
     }
 
+}
+
+-(NSString*)DataTOjsonString:(id)object
+{
+    NSString *jsonString = nil;
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:object
+                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                         error:&error];
+    if (! jsonData) {
+        NSLog(@"Got an error: %@", error);
+    } else {
+        jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+    return jsonString;
+}
+
+- (void)GetServerTime
+{
+    //获取服务器时间
+    NSString *url=@"https://open.ys7.com/api/time/get";
+    NSMutableURLRequest *request = [NSMutableURLRequest new];
+    [request setURL:[NSURL URLWithString:url]];
+    [request setHTTPMethod:@"POST"];
+    
+    [request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    
+    NSMutableData *postBody=[NSMutableData data];
+    [postBody appendData:[@"appKey=2fb8b1891e154de6996f637266bbc16d" dataUsingEncoding:NSUTF8StringEncoding]];
+    
+    
+    [request setHTTPBody:postBody];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        if(!error)
+        {
+            NSHTTPURLResponse* resPonse = (NSHTTPURLResponse*)response;
+            NSLog(@"reponse1 code %ld", [resPonse statusCode]);
+            
+            NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            NSLog(@"Post1 dataStr = %@", dataStr);
+            
+            NSDictionary *dict=[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableLeaves error:nil];
+            
+            //NSDictionary *result = [dict objectForKey:@"result"];
+            _serverTime = dict[@"result"][@"data"][@"serverTime"];
+            
+            NSString *error=dict[@"result"][@"code"];
+            
+            NSLog(@"dict = %@", dict);
+            NSLog(@"error = %@", error);
+            NSLog(@"serverTime = %@", _serverTime);
+            [self AFHttpRequestAccessToken];
+            
+        }
+        else
+        {
+            NSLog(@"post1 error is :%@",error.localizedDescription);
+        }
+        
+    }];
+    
+    [dataTask resume];
+}
+
+- (void)AFHttpRequestAccessToken
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //申明返回的结果是json类型
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    //申明请求的数据是json类型
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
+    //如果报接受类型不一致请替换一致text/html或别的
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    //传入的参数
+
+    NSString *phoneStr = @"phone:18990895233";
+    NSString *methodStr = @"method:token/getAccessToken";
+    NSString *serverTimeStr = [NSString stringWithFormat:@"time:%@", _serverTime];
+    NSString *secretStr = [NSString stringWithFormat:@"secret:%@", SecretKey];
+    
+    NSString *signStr = [[NSString stringWithFormat:@"%@,%@,%@,%@", phoneStr,methodStr,serverTimeStr,secretStr] md5];
+    
+    
+    NSDictionary *systemDic = @{@"key":AppKey, @"sign":signStr, @"time":_serverTime, @"ver":@"1.0"};
+    
+    
+    NSDictionary *parameters4 = @{@"phone":@"18990895233"};
+    
+    //    NSDictionary *params = @{@"params":parameters4};
+    
+    NSDictionary *temp = [NSDictionary dictionaryWithObjectsAndKeys:
+                          @"123456",@"id",
+                          systemDic,@"system",
+                          @"token/getAccessToken", @"method",
+                          parameters4, @"params",
+                          nil];
+    
+    
+    
+    //你的接口地址
+     NSString *url=@"https://open.ys7.com/api/method";
+    //发送请求
+        [manager POST:url parameters:temp success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            NSLog(@"JSON: %@", responseObject);
+            NSDictionary *responseDic = [NSDictionary dictionaryWithDictionary:responseObject];
+            
+            _accessTokenStr = responseDic[@"result"][@"data"][@"accessToken"];
+            NSLog(@"AccessToken=%@", _accessTokenStr);
+            [[GlobalKit shareKit] setAccessToken:_accessTokenStr];
+            [EZOpenSDK setAccessToken:_accessTokenStr];
+            [self addRefreshKit];
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"Error: %@", error);
+        }];
+    
 }
 
 @end

@@ -29,7 +29,7 @@ alpha:alp]
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = @"POST";
     
-    NSString *file = [cloudFile.coverPic dd_getSubStringBeginKey:@"fid=" EndKey:@"&session"];
+    NSString *file = [cloudFile.coverPic getSubStringBeginKey:@"fid=" EndKey:@"&session"];
     
     NSString *password = @"";
     //判断是否加密

@@ -2,7 +2,7 @@
 //  NSArray+DDKit.h
 //  DDCategory
 //
-//  Created by DeJohn Dong on 15/4/25.
+//  Created by diaoshu on 15/4/25.
 //  Copyright (c) 2015年 DDKit. All rights reserved.
 //
 
@@ -11,12 +11,12 @@
 @interface NSArray (DDKit)
 
 /**
- *  Fixed the issue of array index beyond bounds
+ *  fixed the issue of array index beyond bounds
  *
- *  @param index The array index
+ *  @param index array index
  *
- *  @return Object in array
+ *  @return return object in array
  */
-- (id)dd_objectAtIndex:(NSUInteger)index;
+- (id)objectAtIndexCheck:(NSUInteger)index;
 
 @end

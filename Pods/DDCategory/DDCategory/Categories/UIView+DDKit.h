@@ -2,7 +2,7 @@
 //  UIView+DDKit.h
 //  DDCategory
 //
-//  Created by DeJohn Dong on 15-3-20.
+//  Created by Diaoshu on 15-3-20.
 //  Copyright (c) 2015年 DDKit. All rights reserved.
 //
 
@@ -26,52 +26,42 @@ typedef NS_OPTIONS(NSUInteger, ViewSeparatorType) {
 #define SeparatorWidth (1.0/[UIScreen mainScreen].scale)
 #endif
 
-@interface UIView (DDSeparator)
+@interface UIView (Separator)
 
 /**
- *  Add the separator line on the view
+ *  add the separator line on the view
  *
  *  @param type view-separtor-type
  */
-- (void)dd_addSeparatorWithType:(ViewSeparatorType)type;
+- (void)addSeparatorWithType:(ViewSeparatorType)type;
 
 /**
- *  Add the separator line on the view
- *
- *  @param type  view-separtor-type
- *  @param color line-color
- */
-- (void)dd_addSeparatorWithType:(ViewSeparatorType)type color:(UIColor *)color;
-- (void)dd_addSeparatorWithType:(ViewSeparatorType)type withColor:(UIColor *)color __deprecated_msg("Use `dd_addSeparatorWithType:color:`");
-
-/**
- *  Instance a horizontal line with the width
+ *  instance a horizontal line with the width
  *
  *  @param width line-width
  *
  *  @return a horizontal line imageView
  */
-+ (UIImageView *)dd_instanceHorizontalLine:(CGFloat)width;
++ (UIImageView *)instanceHorizontalLine:(CGFloat)width;
 
 /**
- *  Instance a horizontal line with the width & color
+ *  instance a horizontal line with the width & color
  *
  *  @param width line-width
  *  @param color line-color
  *
  *  @return a horizontal line imageView
  */
-+ (UIImageView *)dd_instanceHorizontalLine:(CGFloat)width color:(UIColor *)color;
-+ (UIImageView *)dd_instanceHorizontalLine:(CGFloat)width andColor:(UIColor *)color __deprecated_msg("Use `dd_instanceHorizontalLine:color:`");
++ (UIImageView *)instanceHorizontalLine:(CGFloat)width andColor:(UIColor *)color;
 
 /**
- *  Instance a vertical line with the height
+ *  instance a vertical line with the height
  *
  *  @param height line-height
  *
  *  @return a vertical line imageView
  */
-+ (UIImageView *)dd_instanceVerticalLine:(CGFloat)height;
++ (UIImageView *)instanceVerticalLine:(CGFloat)height;
 
 /**
  *   instance a vertical line with the height & color
@@ -81,106 +71,43 @@ typedef NS_OPTIONS(NSUInteger, ViewSeparatorType) {
  *
  *  @return a vertical line imageView
  */
-+ (UIImageView *)dd_instanceVerticalLine:(CGFloat)height color:(UIColor *)color;
-+ (UIImageView *)dd_instanceVerticalLine:(CGFloat)height andColor:(UIColor *)color __deprecated_msg("Use `dd_instanceVerticalLine:color:`");
++ (UIImageView *)instanceVerticalLine:(CGFloat)height andColor:(UIColor *)color;
 
 
 @end
 
 
-@interface UIView (DDNib)
+@interface UIView (nib)
 
 /**
- *  Load a view from nib file
+ *  load a view from nib file
  *
  *  @return initlialized view object
  */
-+ (id)dd_loadFromNIB;
++ (id)loadFromNIB;
 
 @end
 
-@interface UIView (DD_MBProgressHUD)
+@interface UIView (MBProgressHUD)
 
-/**
- *  Show only text HUD View
- *
- *  @param message The message text
- */
-- (void)dd_showMessageHUD:(NSString *)message;
+- (void)showMessageHUD:(NSString *)message;
 
-/**
- *  Remove the HUD
- */
-- (void)dd_removeHUD;
+- (void)removeHUD;
 
-/**
- *  Show only text HUD View with class method
- *
- *  @param message message text
- */
-+ (void)dd_showMessage:(NSString *)message;
++ (void)showMessage:(NSString *)message;
 
-/**
- *  Show only the HUD View on any parentView
- *
- *  @param message   message text
- *  @param parentView parentView
- */
-+ (void)dd_showMessage:(NSString *)message onParentView:(UIView *)parentView;
++ (void)showMessage:(NSString *)message andCarryView:(UIView *)carryView;
 
-/**
- *  Show detail text HUD View
- *
- *  @param message message text
- */
-+ (void)dd_showDetailMessage:(NSString *)message;
++ (void)showDetailMessage:(NSString *)message;
 
-/**
- *  Show detail text HUD View on any parentView
- *
- *  @param message   message text
- *  @param parentView parentView
- */
-+ (void)dd_showDetailMessage:(NSString *)message onParentView:(UIView *)parentView;
++ (void)showDetailMessage:(NSString *)message andCarryView:(UIView *)carryView;
 
 @end
 
-@interface UIView (DDScreenshot)
+@interface UIView (Screenshot)
 
-/**
- *  Get a screenshot from a view with Y offset
- *
- *  @param deltaY offset Y
- *
- *  @return The screenshot image.
- */
-- (UIImage *)dd_screenshotWithOffsetY:(CGFloat)deltaY;
+- (UIImage *)screenshotWithOffsetY:(CGFloat)deltaY;
 
-/**
- *  Get a screenshot with all the partern of view.
- *
- *  @return The screenshot image
- */
-- (UIImage *)dd_screenshot;
-
-@end
-
-@interface UIView (DDCornerRadius)
-
-/**
- *  Add corner radius layer on the view
- *
- *  @param radius The radius width
- */
-- (void)dd_addCornerRadius:(CGFloat)radius;
-
-/**
- *  Add corner radius layer on the view with line color
- *
- *  @param radius    The radius width
- *  @param lineColor The line color
- */
-- (void)dd_addCornerRadius:(CGFloat)radius lineColor:(UIColor *)lineColor;
-- (void)dd_addCornerRadius:(CGFloat)radius andLineColor:(UIColor *)lineColor __deprecated_msg("Use `dd_addCornerRadius:lineColor:`");
+- (UIImage *)screenshot;
 
 @end

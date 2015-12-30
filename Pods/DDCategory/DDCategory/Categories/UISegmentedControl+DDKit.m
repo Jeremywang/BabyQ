@@ -2,7 +2,7 @@
 //  UISegmentedControl+DDKit.m
 //  DDCategory
 //
-//  Created by DeJohn Dong on 15-3-20.
+//  Created by Diaoshu on 15-3-20.
 //  Copyright (c) 2015年 DDKit. All rights reserved.
 //
 
@@ -13,17 +13,16 @@
 
 @end
 
-@implementation UISegmentedControl (DDFlatten)
+@implementation UISegmentedControl (Flatten)
 
-#if (defined(__IPHONE_OS_VERSION_MIN_REQUIRED) && __IPHONE_OS_VERSION_MIN_REQUIRED <= 60000)
 //处理UISegmentedControl 在iOS6及以下的扁平化效果
-- (void)dd_flattenIniOS6 {
-    [self dd_flattenIniOS6:nil];
+- (void)flattenIniOS6{
+    [self flattenIniOS6:nil];
 }
 
-- (void)dd_flattenIniOS6:(UIColor *)selectedColor {
+- (void)flattenIniOS6:(UIColor *)selectedColor{
     if([[UIDevice currentDevice].systemVersion floatValue] < 6.9){
-        UIImage *image = [UIImage dd_createImageWithCGSize:CGSizeMake(1, 28) color:self.tintColor];
+        UIImage *image = [UIImage createImageWithCGSize:CGSizeMake(1, 28) andColor:self.tintColor];
         [[UISegmentedControl appearance] setBackgroundImage:image
                                                    forState:UIControlStateSelected
                                                  barMetrics:UIBarMetricsDefault];
@@ -32,7 +31,7 @@
                                        rightSegmentState:UIControlStateSelected
                                               barMetrics:UIBarMetricsDefault];
         
-        image = [UIImage dd_createImageWithCGSize:CGSizeMake(1, 28) color:[UIColor clearColor]];
+        image = [UIImage createImageWithCGSize:CGSizeMake(1, 28) andColor:[UIColor clearColor]];
         [[UISegmentedControl appearance] setBackgroundImage:image
                                                    forState:UIControlStateNormal
                                                  barMetrics:UIBarMetricsDefault];
@@ -50,5 +49,5 @@
         
     }
 }
-#endif
+
 @end

@@ -10,6 +10,7 @@
 #import <UIKit/UIKit.h>
 
 #define AppKey        @"2fb8b1891e154de6996f637266bbc16d"
+#define SecretKey     @"7e59ad372a5a449234dd904833f31791"
 //线上
 #define EzvizAppKey @"4bdf5701dfaa4e18bd2abe901274ae17"
 

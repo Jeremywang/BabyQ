@@ -2,7 +2,7 @@
 //  NSString+DDKit.h
 //  DDCategory
 //
-//  Created by DeJohn Dong on 15-3-20.
+//  Created by Diaoshu on 15-3-20.
 //  Copyright (c) 2015年 DDKit. All rights reserved.
 //
 
@@ -12,29 +12,29 @@
 
 @end
 
-@interface NSString (DDDate)
+@interface NSString (NSDate)
 
 /**
- *  Get date info string from a date type object
+ *  get date info string from a date type object
  *
  *  @param date date type object
  *
  *  @return a date info string
  */
-+ (NSString *)dd_formatInfoFromDate:(NSDate *)date;
++ (NSString *)dateInfoFromDate:(NSDate *)date;
 
 /**
- *  Get sns date info string form date type object
+ *  get sns date info string form date type object
  *
  *  @param date date type object
  *
  *  @return a date info string of sns
  */
-+ (NSString *)dd_formatDateFromDate:(NSDate *)date;
++ (NSString *)snsDateInfoFromDate:(NSDate *)date;
 
 @end
 
-@interface NSString (DDPredicate)
+@interface NSString (NSPredicate)
 
 /**
  *  check the string is email
@@ -43,7 +43,7 @@
  *
  *  @return true/false value
  */
-+ (BOOL)dd_checkEmail:(NSString *)input;
++ (BOOL)isEmail:(NSString *)input;
 
 /**
  *  check the string is phone Number
@@ -52,7 +52,7 @@
  *
  *  @return true/false value
  */
-+ (BOOL)dd_checkPhoneNumber:(NSString *)input;
++ (BOOL)isPhoneNum:(NSString *)input;
 
 /**
  *  check the string is chinese name
@@ -61,7 +61,7 @@
  *
  *  @return true/false value
  */
-+ (BOOL)dd_checkChineseName:(NSString *)input;
++ (BOOL)isChineseName:(NSString *)input;
 
 /**
  *  check the string is valudate code
@@ -70,7 +70,7 @@
  *
  *  @return true/false value
  */
-+ (BOOL)dd_checkValidateCode:(NSString *)input;
++ (BOOL)isValidateCode:(NSString *)input;
 
 /**
  *  check the string is strong password string
@@ -79,7 +79,7 @@
  *
  *  @return true/false value
  */
-+ (BOOL)dd_checkPassword:(NSString *)input;
++ (BOOL)checkPassword:(NSString *)input;
 
 
 /**
@@ -89,7 +89,7 @@
  *
  *  @return true/false value
  */
-+ (BOOL)dd_checkMobileNumber:(NSString *)input;
++ (BOOL)isMobileNum:(NSString *)input;
 
 /**
  *  check the string is validate money
@@ -98,38 +98,31 @@
  *
  *  @return true/false value
  */
-+ (BOOL)dd_checkWithDrawMoney:(NSString *)input;
++ (BOOL)checkWithDrawMoney:(NSString *)input;
 
 @end
 
 @interface NSString (md5)
 
 /**
- *  Get a md5 string - encrypt method
+ *  md5 - encrypt method
  *
- *  @return The md5 encrypt string
+ *  @return md5 encrypt string
  */
-- (NSString *)dd_md5;
+- (NSString *)md5;
 
 @end
 
-@interface NSString (DDSubString)
+@interface NSString (subString)
 
 /**
- *  Get substring from origin string with condition
+ *  get substring from origin string with condition
  *
- *  @param bKey The begin key
- *  @param eKey The end key
+ *  @param bKey begin key
+ *  @param eKey end key
  *
- *  @return The result string
+ *  @return result string
  */
-- (NSString *)dd_getSubStringBeginKey:(NSString *)bKey EndKey:(NSString *)eKey;
+- (NSString *)getSubStringBeginKey:(NSString *)bKey EndKey:(NSString *)eKey;
 
 @end
-
-@interface NSString (DDPrice)
-
-+ (NSString *)dd_formatPrice:(NSNumber *)price;
-
-@end
-

@@ -2,7 +2,7 @@
 //  NSArray+DDKit.m
 //  DDCategory
 //
-//  Created by DeJohn Dong on 15/4/25.
+//  Created by diaoshu on 15/4/25.
 //  Copyright (c) 2015年 DDKit. All rights reserved.
 //
 
@@ -10,7 +10,7 @@
 
 @implementation NSArray (DDKit)
 
-- (id)dd_objectAtIndex:(NSUInteger)index {
+- (id)objectAtIndexCheck:(NSUInteger)index{
     if (index >= [self count]) {
         return nil;
     }

@@ -173,10 +173,10 @@
     self.largeBackButton.hidden = YES;
     _isOpenSound = YES;
     
-    [self.controlButton dd_centerImageAndTitle];
-    [self.talkButton dd_centerImageAndTitle];
-    [self.captureButton dd_centerImageAndTitle];
-    [self.localRecordButton dd_centerImageAndTitle];
+//    [self.controlButton centerImageAndTitlec];
+//    [self.talkButton dd_centerImageAndTitle];
+//    [self.captureButton dd_centerImageAndTitle];
+//    [self.localRecordButton dd_centerImageAndTitle];
     
     [self.voiceButton setImage:[UIImage imageNamed:@"preview_unvoice_btn_sel"] forState:UIControlStateHighlighted];
     [self addLine];
@@ -740,7 +740,7 @@
     {
         message = [error description];
     }
-    [UIView dd_showMessage:message];
+    [UIView showMessage:message];
 }
 
 - (void)addLine
@@ -752,16 +752,18 @@
         }
     }
     CGFloat averageWidth = [UIScreen mainScreen].bounds.size.width/5.0;
-    UIImageView *lineImageView1 = [UIView dd_instanceVerticalLine:20 color:[UIColor grayColor]];
+    //UIImageView *lineImageView1 = [UIView instanceVerticalLine:20 color:[UIColor grayColor]];
+    UIImageView *lineImageView1 = [UIView instanceVerticalLine:20.0 andColor:[UIColor grayColor]];
+    
     lineImageView1.frame = CGRectMake(averageWidth, 7, lineImageView1.frame.size.width, lineImageView1.frame.size.height);
     [self.toolBar addSubview:lineImageView1];
-    UIImageView *lineImageView2 = [UIView dd_instanceVerticalLine:20 color:[UIColor grayColor]];
+    UIImageView *lineImageView2 = [UIView instanceVerticalLine:20 andColor:[UIColor grayColor]];
     lineImageView2.frame = CGRectMake(averageWidth * 2, 7, lineImageView2.frame.size.width, lineImageView2.frame.size.height);
     [self.toolBar addSubview:lineImageView2];
-    UIImageView *lineImageView3 = [UIView dd_instanceVerticalLine:20 color:[UIColor grayColor]];
+    UIImageView *lineImageView3 = [UIView instanceVerticalLine:20 andColor:[UIColor grayColor]];
     lineImageView3.frame = CGRectMake(averageWidth * 3, 7, lineImageView3.frame.size.width, lineImageView3.frame.size.height);
     [self.toolBar addSubview:lineImageView3];
-    UIImageView *lineImageView4 = [UIView dd_instanceVerticalLine:20 color:[UIColor grayColor]];
+    UIImageView *lineImageView4 = [UIView instanceVerticalLine:20 andColor:[UIColor grayColor]];
     lineImageView4.frame = CGRectMake(averageWidth * 4, 7, lineImageView4.frame.size.width, lineImageView4.frame.size.height);
     [self.toolBar addSubview:lineImageView4];
 }

@@ -2,7 +2,7 @@
 //  UIColor+DDKit.m
 //  DDCategory
 //
-//  Created by DeJohn Dong on 15-3-20.
+//  Created by Diaoshu on 15-3-20.
 //  Copyright (c) 2015年 DDKit. All rights reserved.
 //
 
@@ -12,9 +12,9 @@
 
 @end
 
-@implementation UIColor (DDHexString)
+@implementation UIColor(HexString)
 
-+ (UIColor *)dd_hexStringToColor:(NSString *)stringToConvert {
++ (UIColor *)hexStringToColor:(NSString *)stringToConvert{
     NSString *cString = [[stringToConvert stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
     // String should be 6 or 8 characters
     

@@ -2,7 +2,7 @@
 //  UIButton+DDKit.h
 //  DDCategory
 //
-//  Created by DeJohn Dong on 15-3-20.
+//  Created by Diaoshu on 15-3-20.
 //  Copyright (c) 2015年 DDKit. All rights reserved.
 //
 
@@ -12,47 +12,30 @@
 
 @end
 
-@interface UIButton (DDBadgeView)
+@interface UIButton (BadgeView)
 
 /**
- *  Remove the badge value on the button.
+ *  remove the badge value
  */
-- (void)dd_removeBadgeValue;
+- (void)removeBadgeValue;
 
 /**
- *  Add a badge value view on the button.
+ *  add a badge value view on the button
  *
- *  @param strBadgeValue The badge value.
+ *  @param strBadgeValue badge value
  *
- *  @return A view contrain the badge value.
+ *  @return badge value view
  */
-- (UIView *)dd_showBadgeValue:(NSString *)strBadgeValue;
+- (UIView *)showBadgeValue:(NSString *)strBadgeValue;
 
 /**
- *  Add a badage value view use the padding position.
+ *  add a badage value view
  *
- *  @param strBadgeValue The badge value.
- *  @param point         The padding offset position.
+ *  @param strBadgeValue badge value
+ *  @param point  padding offset
  *
- *  @return A view contrain the badge value.
+ *  @return badge value view
  */
-- (UIView *)dd_showBadgeValue:(NSString *)strBadgeValue andPadding:(CGPoint)point;
-
-@end
-
-
-@interface UIButton (DDButtonCenterStyle)
-
-/**
- *  Set the title & image center in the button bounds
- *
- *  @param space The title & image space
- */
-- (void)dd_centerImageAndTitle:(float)space;
-
-/**
- *  Default center method.
- */
-- (void)dd_centerImageAndTitle;
+- (UIView *)showBadgeValue:(NSString *)strBadgeValue andPadding:(CGPoint)point;
 
 @end

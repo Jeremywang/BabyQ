@@ -2,7 +2,7 @@
 //  UIColor+DDKit.h
 //  DDCategory
 //
-//  Created by DeJohn Dong on 15-3-20.
+//  Created by Diaoshu on 15-3-20.
 //  Copyright (c) 2015年 DDKit. All rights reserved.
 //
 
@@ -12,15 +12,11 @@
 
 @end
 
-@interface UIColor (DDHexString)
-
 /**
- *  Convert hex color string into UIColor
- *
- *  @param stringToConvert The hex color string.
- *
- *  @return UIColor
+ *  get color from a hex string;
  */
-+ (UIColor *)dd_hexStringToColor:(NSString *)stringToConvert;
+@interface UIColor(HexString)
+
++ (UIColor *)hexStringToColor:(NSString *)stringToConvert;
 
 @end

@@ -82,6 +82,7 @@
 - (void)dealloc
 {
     [EZOpenSDK releasePlayer:_player];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"wifiStatesChanged" object:nil];
 }
 
 - (void)centerScrollViewContents {

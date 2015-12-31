@@ -11,6 +11,7 @@
 
 @interface RootViewController :RESideMenu
 
+@property (nonatomic, strong) UIViewController *originalContentViewController;
 
 @end
 

@@ -7,8 +7,11 @@
 //
 
 #import "RootViewController.h"
+#import "LoginViewController.h"
+#import "Config.h"
 
 @interface RootViewController ()
+
 
 @end
 
@@ -33,8 +36,31 @@
     self.contentViewShadowEnabled = YES;
     self.contentViewShadowRadius = 4.5;
     
-    self.contentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"];
-    self.leftMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenuViewController"];
+    if ([Config get_login_status]) {
+        NSLog(@"RootViewController -----  App has login");
+        self.leftMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenuViewController"];
+        _originalContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"];
+
+        self.contentViewController = _originalContentViewController;
+      } else {
+        NSLog(@"RootViewController -----  App does't login");
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+        LoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+        UINavigationController *firstNav = [[UINavigationController alloc]initWithRootViewController:loginVC];
+        
+        self.contentViewController = firstNav;
+          _originalContentViewController = nil;
+        
+        self.leftMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenuViewController"];
+        
+    }
+    
+
+   
+    
+
+    
+        //[self presentViewController:loginVC animated:NO completion:nil];
 }
 
 @end

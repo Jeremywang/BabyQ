@@ -50,6 +50,15 @@
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
     
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+//    LoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+//    //loginVC.hidesBottomBarWhenPushed = YES;
+//    //[self.navigationController pushViewController:loginVC animated:NO];
+    //[self presentModalViewController:loginVC animated:NO];
+    //[self presentViewController:loginVC animated:NO completion:nil];
+    
+    
+    
     if(!_cameraList)
         _cameraList = [NSMutableArray new];
     

@@ -20,6 +20,8 @@
 #import <ReactiveCocoa.h>
 #import <MBProgressHUD.h>
 #import <RESideMenu.h>
+#import "AppDelegate.h"
+#import "RootViewController.h"
 
 
 static NSString * const kShowAccountOperation = @"ShowAccountOperation";
@@ -179,13 +181,24 @@ static NSString * const kShowAccountOperation = @"ShowAccountOperation";
             _hud.labelText = @"登录成功";
             _hud.userInteractionEnabled = NO;
             
-            [_hud hide:YES afterDelay:2];
+            [_hud hide:YES afterDelay:0.5];
             
-            dispatch_time_t when=dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC));
+            dispatch_time_t when=dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC));
             
             dispatch_after(when, dispatch_get_main_queue(), ^{
             
-                 [self.navigationController popViewControllerAnimated:NO];
+                 //[self.navigationController popViewControllerAnimated:NO];
+               RootViewController *rootViewController = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).rootViewController;
+                
+                if (rootViewController.originalContentViewController) {
+                    rootViewController.contentViewController = rootViewController.originalContentViewController;
+                }
+                else
+                {
+                    rootViewController.originalContentViewController = [rootViewController.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"];
+                    rootViewController.contentViewController = rootViewController.originalContentViewController;
+                }
+
              });
             
         }

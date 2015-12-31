@@ -11,6 +11,5 @@
 @interface MineTableViewController : UITableViewController
 
 - (void)refresh;
-- (void)dawnAndNightMode;
 
 @end

@@ -56,20 +56,13 @@
 
 @implementation MineTableViewController
 
-- (void)dawnAndNightMode
-{
-    self.tableView.backgroundColor = [UIColor themeColor];
-    self.tableView.separatorColor = [UIColor seperatorColor];
-    self.refreshControl.tintColor = [UIColor refreshControlColor];
-    
-    [self refreshHeaderView];
-}
+
 
 - (void)awakeFromNib
 {
 //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(noticeUpdateHandler:) name:OSCAPI_USER_NOTICE object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userRefreshHandler:)  name:@"userRefresh"     object:nil];
-//    
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(userRefreshHandler:)  name:@"userRefresh"     object:nil];
+//
     _noticeCounts = [NSMutableArray arrayWithArray:@[@(0), @(0), @(0), @(0), @(0)]];
 }
 
@@ -154,7 +147,7 @@
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+//    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -341,7 +334,23 @@
                 }];
                 
                 UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"注销成功！" message:nil preferredStyle:UIAlertControllerStyleAlert];
-                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil];
+                UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction *action){
+                    
+//                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+//                    LoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+//                    //loginVC.hidesBottomBarWhenPushed = YES;
+//                    [self presentViewController:loginVC animated:NO completion:nil];
+                    
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+                    LoginViewController *loginVC = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+                    UINavigationController *firstNav = [[UINavigationController alloc]initWithRootViewController:loginVC];
+                    
+                    RootViewController *rootViewController = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).rootViewController;
+                    
+                    rootViewController.contentViewController = firstNav;
+                    
+                    
+                        }];
                 [alertController addAction:okAction];
                 
                 [self presentViewController:alertController animated:YES completion:nil];
@@ -423,7 +432,7 @@
                                 completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
                                     if (!image) {return;}
                                     [Config savePortrait:image];
-                                    [[NSNotificationCenter defaultCenter] postNotificationName:@"userRefresh" object:@(YES)];
+//                                    [[NSNotificationCenter defaultCenter] postNotificationName:@"userRefresh" object:@(YES)];
                                 }];
         } else {
             _portrait.image = portrait;

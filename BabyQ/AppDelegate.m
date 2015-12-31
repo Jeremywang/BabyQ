@@ -145,6 +145,21 @@
     
     
     //[NSThread sleepForTimeInterval:3.0];//设置启动页面时间
+    
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    // Override point for customization after application launch.
+    
+    UIStoryboard *board = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    _rootViewController = [board instantiateViewControllerWithIdentifier:@"rootViewController"];
+    
+    self.window.rootViewController = _rootViewController;
+    
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    
     return YES;
 }
 

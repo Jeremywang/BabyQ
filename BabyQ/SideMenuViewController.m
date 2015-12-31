@@ -33,7 +33,6 @@ static BOOL isNight;
 {
     [super viewDidLoad];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reload) name:@"userRefresh" object:nil];
     
     self.tableView.bounces = NO;
     
@@ -41,16 +40,11 @@ static BOOL isNight;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dawnAndNightMode:) name:@"dawnAndNight" object:nil];
     
     ((AppDelegate *)[UIApplication sharedApplication].delegate).inNightMode = [Config getMode];
     
 }
 
-- (void)dawnAndNightMode:(NSNotification *)center
-{
-    [self.tableView reloadData];
-}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -58,7 +52,7 @@ static BOOL isNight;
 
 - (void)dealloc
 {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
 }
 
 #pragma mark - Table view data source
@@ -221,8 +215,6 @@ static BOOL isNight;
             }
             self.tableView.backgroundColor = [UIColor titleBarColor];
             [Config saveWhetherNightMode:!isNight];
-            [[NSNotificationCenter defaultCenter] postNotificationName:@"dawnAndNight" object:nil];
-            //            isNight = !isNight;
         }
         default: break;
     }

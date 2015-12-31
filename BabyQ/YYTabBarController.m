@@ -67,65 +67,13 @@
 {
     [super viewWillAppear:animated];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(dawnAndNightMode:) name:@"dawnAndNight" object:nil];
 }
 
-- (void)dawnAndNightMode:(NSNotification *)center
-{
-    
-    [[UINavigationBar appearance] setBarTintColor:[UIColor navigationbarColor]];
-    [[UITabBar appearance] setBarTintColor:[UIColor titleBarColor]];
-    
-    [self.viewControllers enumerateObjectsUsingBlock:^(UINavigationController *nav, NSUInteger idx, BOOL *stop) {
-        if (idx == 0) {
-//            SwipableViewController *newsVc = nav.viewControllers[0];
-//            [newsVc.titleBar setTitleButtonsColor];
-//            [newsVc.viewPager.controllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//                UITableViewController *table = obj;
-//                [table.navigationController.navigationBar setBarTintColor:[UIColor navigationbarColor]];
-//                [table.tabBarController.tabBar setBarTintColor:[UIColor titleBarColor]];
-//                [table.tableView reloadData];
-//            }];
-            MyVideoTableViewController *appVC = nav.viewControllers[0];
-            [appVC.navigationController.navigationBar setBarTintColor:[UIColor navigationbarColor]];
-            [appVC.tabBarController.tabBar setBarTintColor:[UIColor titleColor]];
-           // [appVC dawnAndNightMode];
-            
-        } else if (idx == 1) {
-//            SwipableViewController *tweetVc = nav.viewControllers[0];
-//            [tweetVc.titleBar setTitleButtonsColor];
-//            [tweetVc.viewPager.controllers enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop) {
-//                UITableViewController *table = obj;
-//                [table.navigationController.navigationBar setBarTintColor:[UIColor navigationbarColor]];
-//                [table.tabBarController.tabBar setBarTintColor:[UIColor titleBarColor]];
-//                [table.tableView reloadData];
-//            }];
-            
-        } else if (idx == 2) {
-            
-//              DiscoverViewController *dvc = nav.viewControllers[0];
-//                        [dvc.navigationController.navigationBar setBarTintColor:[UIColor navigationbarColor]];
-//                        [dvc.tabBarController.tabBar setBarTintColor:[UIColor titleBarColor]];
-//                        [dvc dawnAndNightMode];
-        }else if (idx == 3) {
-//            DiscoverViewController *dvc = nav.viewControllers[0];
-//            [dvc.navigationController.navigationBar setBarTintColor:[UIColor navigationbarColor]];
-//            [dvc.tabBarController.tabBar setBarTintColor:[UIColor titleBarColor]];
-//            [dvc dawnAndNightMode];
-        } else if (idx == 4) {
-//            HomepageViewController *homepageVC = nav.viewControllers[0];
-//            [homepageVC.navigationController.navigationBar setBarTintColor:[UIColor navigationbarColor]];
-//            [homepageVC.tabBarController.tabBar setBarTintColor:[UIColor titleBarColor]];
-//            [homepageVC dawnAndNightMode];
-        }
-    }];
-    
-}
+
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-//    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"dawnAndNight" object:nil];
 }
 
 - (void)viewDidLoad

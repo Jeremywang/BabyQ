@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
+#import "RootViewController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -15,6 +16,7 @@
 @property (nonatomic, assign) BOOL inNightMode;
 @property (strong, nonatomic) Reachability *reach;
 @property (nonatomic, assign) BOOL isWifi;
+@property (nonatomic, strong) RootViewController *rootViewController;
 
 
 @end

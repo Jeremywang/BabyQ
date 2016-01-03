@@ -365,7 +365,7 @@
         if(!error)
         {
             NSHTTPURLResponse* resPonse = (NSHTTPURLResponse*)response;
-            NSLog(@"reponse1 code %ld", [resPonse statusCode]);
+            NSLog(@"reponse1 code %ld", (long)[resPonse statusCode]);
             
             NSString *dataStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
             NSLog(@"Post1 dataStr = %@", dataStr);

@@ -296,7 +296,11 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Miu-Mf-wGz">
-                                <rect key="frame" x="0.0" y="20" width="10" height="40"/>
+                                <rect key="frame" x="0.0" y="20" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="C6c-CA-lwU"/>
+                                    <constraint firstAttribute="height" constant="40" id="hR5-sj-trk"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <state key="normal" image="large_back_btn"/>
                                 <connections>
@@ -515,6 +519,7 @@
                         <constraints>
                             <constraint firstItem="TnB-fx-aHe" firstAttribute="centerX" secondItem="IRa-S6-SMI" secondAttribute="centerX" id="06i-rR-mXH"/>
                             <constraint firstItem="I8b-2G-OXb" firstAttribute="centerY" secondItem="nuT-iA-8Xp" secondAttribute="centerY" id="4q2-QZ-MqC"/>
+                            <constraint firstItem="Miu-Mf-wGz" firstAttribute="top" secondItem="9WX-vn-3b8" secondAttribute="bottom" id="8Gt-oX-WDo"/>
                             <constraint firstItem="IRa-S6-SMI" firstAttribute="top" secondItem="TnB-fx-aHe" secondAttribute="bottom" id="9X0-Jh-2Sm"/>
                             <constraint firstItem="Mbs-uU-QlX" firstAttribute="top" secondItem="nuT-iA-8Xp" secondAttribute="top" id="9hG-Td-KhF"/>
                             <constraint firstItem="nuT-iA-8Xp" firstAttribute="leading" secondItem="1cW-ZS-Mf1" secondAttribute="leading" id="9qH-zF-otz"/>
@@ -536,6 +541,7 @@
                             <constraint firstItem="Miu-Mf-wGz" firstAttribute="top" secondItem="Mbs-uU-QlX" secondAttribute="top" id="maS-91-R5h"/>
                             <constraint firstItem="IRa-S6-SMI" firstAttribute="trailing" secondItem="GGc-CJ-aBT" secondAttribute="trailing" id="p7J-39-od2"/>
                             <constraint firstItem="GGc-CJ-aBT" firstAttribute="bottom" secondItem="gHU-ux-XSG" secondAttribute="top" id="psB-RI-IIK"/>
+                            <constraint firstItem="Miu-Mf-wGz" firstAttribute="leading" secondItem="1cW-ZS-Mf1" secondAttribute="leading" id="u1i-rm-yD6"/>
                             <constraint firstItem="Mbs-uU-QlX" firstAttribute="centerX" secondItem="YzN-ys-9KI" secondAttribute="centerX" id="uJN-WW-s3V"/>
                             <constraint firstItem="GGc-CJ-aBT" firstAttribute="top" secondItem="IRa-S6-SMI" secondAttribute="bottom" id="xbq-mR-h1G"/>
                             <constraint firstItem="nuT-iA-8Xp" firstAttribute="leading" secondItem="IRa-S6-SMI" secondAttribute="leading" id="xcV-UA-Pvm"/>
@@ -544,6 +550,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="8Gt-oX-WDo"/>
                                 <exclude reference="YxL-2c-Ayf"/>
                             </mask>
                         </variation>

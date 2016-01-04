@@ -18,12 +18,16 @@
 #import "AppDelegate.h"
 #import "Config.h"
 #import "LoginViewController.h"
+#import <MBProgressHUD.h>
+#import "Utils.h"
 
 #import <AFNetworking.h>
 
 #define EZCameraListPageSize 10
 
 @interface MyVideoTableViewController ()
+
+@property (nonatomic, strong) MBProgressHUD *hud;
 
 @property (nonatomic, strong) NSMutableArray *cameraList;
 
@@ -57,6 +61,16 @@
     //[self presentModalViewController:loginVC animated:NO];
     //[self presentViewController:loginVC animated:NO completion:nil];
     
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    CGRect rect = [[self view] bounds];
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:rect];
+    [imageView setImage:[UIImage imageNamed:@"userlogin-background.png" ]];
+    
+    [self.view setBackgroundColor:[UIColor clearColor]];   //(1)
+    [self.tableView setBackgroundColor:[UIColor clearColor]];
+    self.tableView.opaque = NO; //(2) (1,2)两行不要也行，背景图片也能显示
+    self.tableView.backgroundView = imageView;
     
     
     if(!_cameraList)
@@ -101,17 +115,12 @@
     {
         _needRefresh = NO;
         [self.tableView.mj_header beginRefreshing];
+        [self GetServerTime];
     }
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+
     
-    CGRect rect = [[self view] bounds];
-    UIImageView *imageView = [[UIImageView alloc] initWithFrame:rect];
-    [imageView setImage:[UIImage imageNamed:@"userlogin-background.png" ]];
     
-    [self.view setBackgroundColor:[UIColor clearColor]];   //(1)
-    [self.tableView setBackgroundColor:[UIColor clearColor]];
-    self.tableView.opaque = NO; //(2) (1,2)两行不要也行，背景图片也能显示
-    self.tableView.backgroundView = imageView;
+    
 //
 //    
 //    if([GlobalKit shareKit].accessToken)
@@ -229,6 +238,11 @@
                           [weakSelf.tableView reloadData];
                           [weakSelf.tableView.mj_header endRefreshing];
                           [weakSelf addFooter];
+                          
+                          dispatch_async(dispatch_get_main_queue(), ^{
+                              _needRefresh = NO;
+                              [_hud hide:YES];
+                          });
                       }];
     }];
     self.tableView.mj_header.automaticallyChangeAlpha = YES;
@@ -345,6 +359,13 @@
 
 - (void)GetServerTime
 {
+    dispatch_async(dispatch_get_main_queue(), ^{
+         _hud = [Utils createHUD];
+         _hud.labelText = @"数据加载中";
+         _hud.userInteractionEnabled = NO;
+    });
+
+    
     //获取服务器时间
     NSString *url=@"https://open.ys7.com/api/time/get";
     NSMutableURLRequest *request = [NSMutableURLRequest new];
@@ -386,6 +407,16 @@
         else
         {
             NSLog(@"post1 error is :%@",error.localizedDescription);
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _needRefresh = YES;
+                [_hud hide:YES];
+                _hud = [Utils createHUD];
+                _hud.labelText = @"数据获取出错";
+                _hud.userInteractionEnabled = NO;
+                
+                [_hud hide:YES afterDelay:1];
+            });
         }
         
     }];
@@ -442,6 +473,15 @@
             [self addRefreshKit];
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _needRefresh = YES;
+                [_hud hide:YES];
+                _hud = [Utils createHUD];
+                _hud.labelText = @"数据获取出错";
+                _hud.userInteractionEnabled = NO;
+                
+                [_hud hide:YES afterDelay:1];
+            });
         }];
     
 }

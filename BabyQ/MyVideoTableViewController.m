@@ -114,7 +114,7 @@
     if(_needRefresh)
     {
         _needRefresh = NO;
-        [self.tableView.mj_header beginRefreshing];
+//        /[self.tableView.mj_header beginRefreshing];
         [self GetServerTime];
     }
 

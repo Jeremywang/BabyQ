@@ -205,7 +205,7 @@
     cell.backgroundColor = [UIColor cellsColor];//colorWithHex:0xF9F9F9
     
     cell.textLabel.text = @[@"清除缓存", @"仅在WIFI模式播放", @"关于我们", @"退出登录"][indexPath.row];
-    cell.imageView.image = [UIImage imageNamed:@[@"setting-changepassword", @"setting-clean", @"setting-wifi", @"setting-about", @"setting-exit"][indexPath.row]];
+    cell.imageView.image = [UIImage imageNamed:@[@"setting-clean", @"setting-wifi", @"setting-about", @"setting-exit"][indexPath.row]];
     
 //    CGRect imageframe = cell.imageView.frame;
 //    imageframe.size.height = 20;

@@ -29,6 +29,7 @@
 //#import "VoiceTweetEditingVC.h"
 #import "UIImage+Util.h"
 #import "MineTableViewController.h"
+#import "SettingViewController.h"
 //#import "TweetsTableViewController.h"
 #import "MyVideoTableViewController.h"
 
@@ -94,15 +95,19 @@
 //Tweets tabItem
 //    UIStoryboard *tweetSB= [UIStoryboard storyboardWithName:@"TweetsTableViewController" bundle:nil];
 //    UINavigationController *tweetNav = [tweetSB instantiateViewControllerWithIdentifier:@"Nav"];
+ 
+//SettingView Item
+    UIStoryboard *settingSB = [UIStoryboard storyboardWithName:@"SettingViewController" bundle:nil];
+    UINavigationController *settingNav = [settingSB instantiateViewControllerWithIdentifier:@"Nav"];
     
 //Mine tabItem
-    UIStoryboard *mineSB = [UIStoryboard storyboardWithName:@"MineTableViewController" bundle:nil];
-    UINavigationController *mineNav = [mineSB instantiateViewControllerWithIdentifier:@"Nav"];
+//    UIStoryboard *mineSB = [UIStoryboard storyboardWithName:@"MineTableViewController" bundle:nil];
+//    UINavigationController *mineNav = [mineSB instantiateViewControllerWithIdentifier:@"Nav"];
     
     self.tabBar.translucent = NO;
     self.viewControllers = @[
                              VideoNav,
-                             mineNav,
+                             settingNav,
                              ];
     
     NSArray *titles = @[@"视频", @"设置"];

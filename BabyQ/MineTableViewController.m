@@ -80,7 +80,7 @@
     self.tableView.backgroundColor = [UIColor themeColor];
     self.tableView.separatorColor = [UIColor seperatorColor];
     
-    [self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
+    //[self.refreshControl addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     
     [self setUpSubviews];
     
@@ -177,7 +177,7 @@
     [_portrait addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapPortrait)]];
     
     [self setCoverImage];
-    self.refreshControl.tintColor = [UIColor refreshControlColor];
+   // self.refreshControl.tintColor = [UIColor refreshControlColor];
 }
 
 #pragma mark - Table view data source

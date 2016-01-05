@@ -99,6 +99,8 @@
 		3F1BD6501C2CE59500AD9DE9 /* user-background@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3F1BD64D1C2CE59500AD9DE9 /* user-background@3x.png */; };
 		3F21D3631C19E05A0094CA8A /* user.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3F21D3621C19E05A0094CA8A /* user.plist */; };
 		3F2432E71C17C5010043DD3E /* GlobalKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F2432E61C17C5010043DD3E /* GlobalKit.m */; };
+		3F5A8A4F1C3BB1CE0017302E /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5A8A4E1C3BB1CE0017302E /* SettingViewController.m */; };
+		3F5A8A511C3BB1EA0017302E /* SettingViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F5A8A501C3BB1EA0017302E /* SettingViewController.storyboard */; };
 		3F5B64C41C17345A00654748 /* EZLivePlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B64C31C17345A00654748 /* EZLivePlayViewController.m */; };
 		3F5B64C61C17369900654748 /* Video.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F5B64C51C17369900654748 /* Video.xcassets */; };
 		3F5B64CD1C17382E00654748 /* UINavigationController+EZOpenSDK.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F5B64CA1C17382E00654748 /* UINavigationController+EZOpenSDK.m */; };
@@ -351,6 +353,9 @@
 		3F21D3621C19E05A0094CA8A /* user.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = user.plist; sourceTree = "<group>"; };
 		3F2432E51C17C5010043DD3E /* GlobalKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalKit.h; sourceTree = "<group>"; };
 		3F2432E61C17C5010043DD3E /* GlobalKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalKit.m; sourceTree = "<group>"; };
+		3F5A8A4D1C3BB1CE0017302E /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		3F5A8A4E1C3BB1CE0017302E /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		3F5A8A501C3BB1EA0017302E /* SettingViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SettingViewController.storyboard; sourceTree = "<group>"; };
 		3F5B64C21C17345A00654748 /* EZLivePlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZLivePlayViewController.h; sourceTree = "<group>"; };
 		3F5B64C31C17345A00654748 /* EZLivePlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EZLivePlayViewController.m; sourceTree = "<group>"; };
 		3F5B64C51C17369900654748 /* Video.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Video.xcassets; sourceTree = "<group>"; };
@@ -541,6 +546,9 @@
 		3F1238E11C15B1CD00E9962E /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				3F5A8A4D1C3BB1CE0017302E /* SettingViewController.h */,
+				3F5A8A4E1C3BB1CE0017302E /* SettingViewController.m */,
+				3F5A8A501C3BB1EA0017302E /* SettingViewController.storyboard */,
 				3F1238E21C15B1EC00E9962E /* MineTableViewController.h */,
 				3F1238E31C15B1EC00E9962E /* MineTableViewController.m */,
 				3F1238E41C15B1EC00E9962E /* MineTableViewController.storyboard */,
@@ -1024,6 +1032,7 @@
 				3FDE64521C26F40900885E25 /* login-button.png in Resources */,
 				3F1BD64A1C2CE45F00AD9DE9 /* tabbar-video@3x.png in Resources */,
 				3F1BD6501C2CE59500AD9DE9 /* user-background@3x.png in Resources */,
+				3F5A8A511C3BB1EA0017302E /* SettingViewController.storyboard in Resources */,
 				3FDE64261C26A81300885E25 /* about.png in Resources */,
 				3F1BD6481C2CE45F00AD9DE9 /* tabbar-video-selected@3x.png in Resources */,
 				3F72A77A1C14606300371B17 /* LaunchScreen.storyboard in Resources */,
@@ -1110,6 +1119,7 @@
 				3F72A76C1C14606200371B17 /* AppDelegate.m in Sources */,
 				3F1239BE1C15C7AB00E9962E /* MyVideoTableViewController.m in Sources */,
 				3FC2A5831C173D3A0085BE96 /* UIImageView+EzvizOpenSDK.m in Sources */,
+				3F5A8A4F1C3BB1CE0017302E /* SettingViewController.m in Sources */,
 				3F1239221C15B60C00E9962E /* MZDayPicker.m in Sources */,
 				3F12394F1C15B7DC00E9962E /* UIScrollView+ScalableCover.m in Sources */,
 				3F2432E71C17C5010043DD3E /* GlobalKit.m in Sources */,
@@ -1220,7 +1230,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1258,7 +1268,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1282,6 +1292,7 @@
 					"$(PROJECT_DIR)/BabyQ/ShareSDK/UI",
 				);
 				INFOPLIST_FILE = BabyQ/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1314,6 +1325,7 @@
 					"$(PROJECT_DIR)/BabyQ/ShareSDK/UI",
 				);
 				INFOPLIST_FILE = BabyQ/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

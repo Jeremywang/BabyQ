@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--Setting-->
+        <scene sceneID="KE7-iT-IyT">
+            <objects>
+                <viewController id="FqE-6T-StH" userLabel="Setting" customClass="SettingViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sGI-pU-KfG"/>
+                        <viewControllerLayoutGuide type="bottom" id="boJ-Qa-Tef"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Hbw-LZ-bCz">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="user-background-320.png" translatesAutoresizingMaskIntoConstraints="NO" id="uOH-Lj-9E1">
+                                <rect key="frame" x="0.0" y="64" width="600" height="170"/>
+                            </imageView>
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="default-portrait" translatesAutoresizingMaskIntoConstraints="NO" id="eCM-vl-0a1">
+                                <rect key="frame" x="253" y="94" width="95" height="95"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="95" id="C14-Fb-8Ut"/>
+                                    <constraint firstAttribute="width" constant="95" id="qz8-Ub-9Ra"/>
+                                </constraints>
+                            </imageView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OhK-P3-45X">
+                                <rect key="frame" x="0.0" y="242" width="600" height="176"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="176" id="Bli-TJ-EEZ"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="3Ly-BL-Kqy">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3Ly-BL-Kqy" id="ecK-4d-4Hd">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="Nf5-zY-orA">
+                                        <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Nf5-zY-orA" id="naZ-Wk-psl">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="qLM-ac-aZn">
+                                        <rect key="frame" x="0.0" y="116" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qLM-ac-aZn" id="Qa9-li-g6p">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="qYO-qF-M3x">
+                                        <rect key="frame" x="0.0" y="160" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qYO-qF-M3x" id="kaN-i1-r4x">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <sections/>
+                                <connections>
+                                    <outlet property="dataSource" destination="FqE-6T-StH" id="ym0-N6-rYP"/>
+                                    <outlet property="delegate" destination="FqE-6T-StH" id="wof-0B-aJy"/>
+                                </connections>
+                            </tableView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mine-down.png" translatesAutoresizingMaskIntoConstraints="NO" id="lpd-EU-KER">
+                                <rect key="frame" x="0.0" y="419" width="600" height="181"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="600" id="NCn-39-XGy"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uOH-Lj-9E1" firstAttribute="trailing" secondItem="OhK-P3-45X" secondAttribute="trailing" id="1Go-QD-4aC"/>
+                            <constraint firstItem="uOH-Lj-9E1" firstAttribute="leading" secondItem="OhK-P3-45X" secondAttribute="leading" id="1Jg-D9-zPv"/>
+                            <constraint firstItem="eCM-vl-0a1" firstAttribute="centerX" secondItem="uOH-Lj-9E1" secondAttribute="centerX" id="2uS-pa-vN4"/>
+                            <constraint firstItem="boJ-Qa-Tef" firstAttribute="top" secondItem="lpd-EU-KER" secondAttribute="bottom" id="Bbl-5d-lHh"/>
+                            <constraint firstItem="eCM-vl-0a1" firstAttribute="top" secondItem="sGI-pU-KfG" secondAttribute="bottom" constant="30" id="DvE-ea-iP5"/>
+                            <constraint firstItem="OhK-P3-45X" firstAttribute="top" secondItem="uOH-Lj-9E1" secondAttribute="bottom" constant="8" symbolic="YES" id="GYa-lS-rkn"/>
+                            <constraint firstAttribute="trailing" secondItem="lpd-EU-KER" secondAttribute="trailing" id="Nnc-xg-ckT"/>
+                            <constraint firstItem="lpd-EU-KER" firstAttribute="leading" secondItem="OhK-P3-45X" secondAttribute="leading" id="PsH-Bd-g9t"/>
+                            <constraint firstItem="lpd-EU-KER" firstAttribute="leading" secondItem="Hbw-LZ-bCz" secondAttribute="leading" id="SJl-S5-2nW"/>
+                            <constraint firstAttribute="trailing" secondItem="lpd-EU-KER" secondAttribute="trailing" id="SaL-oh-pQt"/>
+                            <constraint firstItem="OhK-P3-45X" firstAttribute="leading" secondItem="Hbw-LZ-bCz" secondAttribute="leading" id="SeN-GO-3cC"/>
+                            <constraint firstItem="OhK-P3-45X" firstAttribute="top" secondItem="eCM-vl-0a1" secondAttribute="bottom" constant="53" id="WUF-fb-aIh"/>
+                            <constraint firstItem="lpd-EU-KER" firstAttribute="top" secondItem="uOH-Lj-9E1" secondAttribute="bottom" constant="185" id="aNn-qw-qCJ"/>
+                            <constraint firstItem="lpd-EU-KER" firstAttribute="trailing" secondItem="OhK-P3-45X" secondAttribute="trailing" id="nfK-7o-HWp"/>
+                            <constraint firstItem="lpd-EU-KER" firstAttribute="bottom" secondItem="boJ-Qa-Tef" secondAttribute="top" id="wr4-JB-jKt"/>
+                            <constraint firstItem="uOH-Lj-9E1" firstAttribute="top" secondItem="sGI-pU-KfG" secondAttribute="bottom" id="yx1-nx-RNI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="设置" id="sLo-wd-cEK"/>
+                    <connections>
+                        <outlet property="portrait" destination="eCM-vl-0a1" id="c42-Dv-XRb"/>
+                        <outlet property="tableView" destination="OhK-P3-45X" id="XId-jL-sjj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bYM-qB-QFn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="153" y="1566"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="jjp-FU-nCN">
+            <objects>
+                <navigationController storyboardIdentifier="Nav" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Rc-Rt-s9m" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1CP-be-PtQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="FqE-6T-StH" kind="relationship" relationship="rootViewController" id="DOS-gL-27i"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4kA-k7-JA7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="153" y="681"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="default-portrait" width="36" height="36"/>
+        <image name="mine-down.png" width="3000" height="1767"/>
+        <image name="user-background-320.png" width="240" height="300"/>
+    </resources>
+</document>

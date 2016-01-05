@@ -13,8 +13,8 @@
 @property (nonatomic, copy) NSString *cameraId;
 @property (nonatomic, copy) NSString *cameraName;
 
-- (void)imageSavedToPhotosAlbum:(UIImage *)image
-       didFinishSavingWithError:(NSError *)error
-                    contextInfo:(void *)contextInfo;
+//- (void)imageSavedToPhotosAlbum:(UIImage *)image
+//       didFinishSavingWithError:(NSError *)error
+//                    contextInfo:(void *)contextInfo;
 
 @end

@@ -38,7 +38,7 @@
     
     if ([Config get_login_status]) {
         NSLog(@"RootViewController -----  App has login");
-        self.leftMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenuViewController"];
+        //self.leftMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenuViewController"];
         _originalContentViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"];
 
         self.contentViewController = _originalContentViewController;
@@ -51,7 +51,7 @@
         self.contentViewController = firstNav;
           _originalContentViewController = nil;
         
-        self.leftMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenuViewController"];
+       // self.leftMenuViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"leftMenuViewController"];
         
     }
     

@@ -23,7 +23,7 @@
     _inNightMode = [Config getMode];
     
     //    [self loadCookies];
-    
+    [[UIApplication sharedApplication] setIdleTimerDisabled:YES];
     
     /************ 控件外观设置 **************/
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
@@ -80,18 +80,18 @@
 //    [dictServers setObject:@"https://open.ys7.com" forKey:AppKey];
 //    [YSPlayerController loadSDKWithPlatfromServers:dictServers];
     
-    [EZOpenSDK initLibWithAppKey:AppKey];
+ //   [EZOpenSDK initLibWithAppKey:AppKey];
     
     
     ///开启网络状况的监听
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(reachabilityChanged:)
-                                                 name:kReachabilityChangedNotification
-                                               object:nil];
-    
-    self.reach = [Reachability reachabilityWithHostName:@"http://www.baidu.com"];
-    
-    [self.reach startNotifier]; //开始监听，会启动一个run loop
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(reachabilityChanged:)
+//                                                 name:kReachabilityChangedNotification
+//                                               object:nil];
+//    
+//    self.reach = [Reachability reachabilityWithHostName:@"http://www.baidu.com"];
+//    
+//    [self.reach startNotifier]; //开始监听，会启动一个run loop
     
     
     

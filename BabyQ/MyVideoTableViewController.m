@@ -468,6 +468,7 @@
             
             _accessTokenStr = responseDic[@"result"][@"data"][@"accessToken"];
             NSLog(@"AccessToken=%@", _accessTokenStr);
+            [EZOpenSDK initLibWithAppKey:AppKey];
             [[GlobalKit shareKit] setAccessToken:_accessTokenStr];
             [EZOpenSDK setAccessToken:_accessTokenStr];
             [self addRefreshKit];

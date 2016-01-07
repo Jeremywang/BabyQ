@@ -141,13 +141,13 @@
 //            self.controlButton.enabled = YES;
 //        }
 //    }];
-    
     _player = [EZPlayer createPlayerWithCameraId:_cameraId];
     _player.delegate = self;
     [_player setVideoLevel:EZVideoQualityLow];
     [self.qualityButton setTitle:@"流畅" forState:UIControlStateNormal];
     [_player setPlayerView:_playerView];
     [_player startRealPlay];
+
     
 //    if(!_loadingView)
 //        _loadingView = [[HIKLoadView alloc] initWithHIKLoadViewStyle:HIKLoadViewStyleSqureClockWise];

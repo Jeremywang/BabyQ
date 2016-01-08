@@ -37,6 +37,8 @@ NSString * const kTeamsArray = @"teams";
 
 NSString * const kLoginStatus = @"loginStatus";
 
+NSString * const kUserInfoDictionary = @"userInfoDictionary";
+
 #if TARGET_IPHONE_SIMULATOR
 #define SIMULATOR 1
 #define Debug 1
@@ -142,5 +144,24 @@ NSString * const kLoginStatus = @"loginStatus";
     return loginStatus;
 }
 
+//存储从服务器获取的用户信息
+
++ (void)save_user_info_dictionary:(NSDictionary *)dic
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:dic forKey:kUserInfoDictionary];
+    
+    [userDefaults synchronize];
+}
+
+//获取存储的用户信息
+
++ (NSDictionary *)get_user_info_dictionary
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSDictionary *userInfoDic = [userDefaults objectForKey:kUserInfoDictionary];
+    
+    return userInfoDic;
+}
 
 @end

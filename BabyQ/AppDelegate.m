@@ -113,28 +113,28 @@
 //    }
     
     
-    //获取应用程序沙盒的Documents目录
-    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
-    NSString *plistPath1 = [paths objectAtIndex:0];
+//    //获取应用程序沙盒的Documents目录
+//    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+//    NSString *plistPath1 = [paths objectAtIndex:0];
     
     
-    //得到完整的文件名
-    NSString *filename=[plistPath1 stringByAppendingPathComponent:@"userinfo.plist"];
-    
-    NSFileManager *fileMgr = [NSFileManager defaultManager];
-    
-    if (![fileMgr fileExistsAtPath:filename]) {
-        //测试数据
-        
-        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"user" ofType:@"plist"];
-        NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-        //   NSDictionary *user1 = [data objectForKey:@"username1"];
-        NSLog(@"data＝＝＝%@", data);//直接打印数据。
-        //输入写入
-        [data writeToFile:filename atomically:YES];
-    } else {
-        NSLog(@"用户文件已经存在！");
-    }
+//    //得到完整的文件名
+//    NSString *filename=[plistPath1 stringByAppendingPathComponent:@"userinfo.plist"];
+//    
+//    NSFileManager *fileMgr = [NSFileManager defaultManager];
+//    
+//    if (![fileMgr fileExistsAtPath:filename]) {
+//        //测试数据
+//        
+//        NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"user" ofType:@"plist"];
+//        NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+//        //   NSDictionary *user1 = [data objectForKey:@"username1"];
+//        NSLog(@"data＝＝＝%@", data);//直接打印数据。
+//        //输入写入
+//        [data writeToFile:filename atomically:YES];
+//    } else {
+//        NSLog(@"用户文件已经存在！");
+//    }
     
     
     

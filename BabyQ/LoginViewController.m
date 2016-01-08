@@ -22,6 +22,7 @@
 #import <RESideMenu.h>
 #import "AppDelegate.h"
 #import "RootViewController.h"
+#import <AFNetworking.h>
 
 
 static NSString * const kShowAccountOperation = @"ShowAccountOperation";
@@ -46,8 +47,8 @@ static NSString * const kShowAccountOperation = @"ShowAccountOperation";
 @property (nonatomic, copy) NSString *catalog;
 @property (nonatomic, copy) NSString *info;
 
-@property (nonatomic, copy) NSString *account;
-@property (nonatomic, copy) NSString *password;
+@property (nonatomic, copy) NSString *inputusername;
+@property (nonatomic, copy) NSString *inputpassword;
 
 @end
 
@@ -137,89 +138,91 @@ static NSString * const kShowAccountOperation = @"ShowAccountOperation";
 
 - (IBAction)login
 {
-    NSString *inputusername = _accountField.text;
-    NSString *inputpassword = _passwordField.text;
+    _inputusername = _accountField.text;
+    _inputpassword = _passwordField.text;
+    
+    [self LoginRequest];
  
-    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"user" ofType:@"plist"];
-    
-    NSDictionary *user = nil;
-    
-    //获取应用程序沙盒的Documents目录
-    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
-    NSString *plistPath1 = [paths objectAtIndex:0];
-    
-    
-    //得到完整的文件名
-    NSString *filename=[plistPath1 stringByAppendingPathComponent:@"userinfo.plist"];
-    
-    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:filename];
-    
-    NSFileManager *fileMgr = [NSFileManager defaultManager];
-    
-    if ([fileMgr fileExistsAtPath:filename]) {
-    
-        user = [data objectForKey:inputusername];
-        
-    }
-    else
-    {
-        NSMutableDictionary *data2 = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
-        
-        user = [data2 objectForKey:inputusername];
-        
-        [data2 writeToFile:filename atomically:YES];
-        
-    }
-    
-    if (user) { //用户存在，核对密码
-        NSString *storePassword = [user objectForKey:@"password1"];
-        
-        if ([inputpassword isEqualToString:storePassword]) { //密码正确
-            
-            [Config save_login_status:YES];
-            _hud = [Utils createHUD];
-            _hud.labelText = @"登录成功";
-            _hud.userInteractionEnabled = NO;
-            
-            [_hud hide:YES afterDelay:0.5];
-            
-            dispatch_time_t when=dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC));
-            
-            dispatch_after(when, dispatch_get_main_queue(), ^{
-            
-                 //[self.navigationController popViewControllerAnimated:NO];
-               RootViewController *rootViewController = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).rootViewController;
-                
-                if (rootViewController.originalContentViewController) {
-                    rootViewController.contentViewController = rootViewController.originalContentViewController;
-                }
-                else
-                {
-                    rootViewController.originalContentViewController = [rootViewController.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"];
-                    rootViewController.contentViewController = rootViewController.originalContentViewController;
-                }
-
-             });
-            
-        }
-        else{     //密码错误
-            [Config save_login_status:false];
-            _hud = [Utils createHUD];
-            _hud.labelText = @"密码错误";
-            _hud.userInteractionEnabled = NO;
-            
-            [_hud hide:YES afterDelay:1];
-        }
-        
-    }
-    else{ //用户不存在
-        [Config save_login_status:FALSE];
-        _hud = [Utils createHUD];
-        _hud.labelText = @"用户名错误";
-        _hud.userInteractionEnabled = NO;
-        
-        [_hud hide:YES afterDelay:1];
-    }
+//    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"user" ofType:@"plist"];
+//    
+//    NSDictionary *user = nil;
+//    
+//    //获取应用程序沙盒的Documents目录
+//    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+//    NSString *plistPath1 = [paths objectAtIndex:0];
+//    
+//    
+//    //得到完整的文件名
+//    NSString *filename=[plistPath1 stringByAppendingPathComponent:@"userinfo.plist"];
+//    
+//    NSMutableDictionary *data = [[NSMutableDictionary alloc] initWithContentsOfFile:filename];
+//    
+//    NSFileManager *fileMgr = [NSFileManager defaultManager];
+//    
+//    if ([fileMgr fileExistsAtPath:filename]) {
+//    
+//        user = [data objectForKey:_inputusername];
+//        
+//    }
+//    else
+//    {
+//        NSMutableDictionary *data2 = [[NSMutableDictionary alloc] initWithContentsOfFile:plistPath];
+//        
+//        user = [data2 objectForKey:_inputusername];
+//        
+//        [data2 writeToFile:filename atomically:YES];
+//        
+//    }
+//    
+//    if (user) { //用户存在，核对密码
+//        NSString *storePassword = [user objectForKey:@"password1"];
+//        
+//        if ([_inputpassword isEqualToString:storePassword]) { //密码正确
+//            
+//            [Config save_login_status:YES];
+//            _hud = [Utils createHUD];
+//            _hud.labelText = @"登录成功";
+//            _hud.userInteractionEnabled = NO;
+//            
+//            [_hud hide:YES afterDelay:0.5];
+//            
+//            dispatch_time_t when=dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC));
+//            
+//            dispatch_after(when, dispatch_get_main_queue(), ^{
+//            
+//                 //[self.navigationController popViewControllerAnimated:NO];
+//               RootViewController *rootViewController = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).rootViewController;
+//                
+//                if (rootViewController.originalContentViewController) {
+//                    rootViewController.contentViewController = rootViewController.originalContentViewController;
+//                }
+//                else
+//                {
+//                    rootViewController.originalContentViewController = [rootViewController.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"];
+//                    rootViewController.contentViewController = rootViewController.originalContentViewController;
+//                }
+//
+//             });
+//            
+//        }
+//        else{     //密码错误
+//            [Config save_login_status:false];
+//            _hud = [Utils createHUD];
+//            _hud.labelText = @"密码错误";
+//            _hud.userInteractionEnabled = NO;
+//            
+//            [_hud hide:YES afterDelay:1];
+//        }
+//        
+//    }
+//    else{ //用户不存在
+//        [Config save_login_status:FALSE];
+//        _hud = [Utils createHUD];
+//        _hud.labelText = @"用户名错误";
+//        _hud.userInteractionEnabled = NO;
+//        
+//        [_hud hide:YES afterDelay:1];
+//    }
     
     
 //    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager OSCManager];
@@ -564,6 +567,86 @@ static NSString * const kShowAccountOperation = @"ShowAccountOperation";
 //    }
 //}
 
+- (void)LoginRequest
+{
+    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+    //申明返回的结果是json类型
+    manager.responseSerializer = [AFJSONResponseSerializer serializer];
+    //申明请求的数据是json类型
+    manager.requestSerializer=[AFJSONRequestSerializer serializer];
+    //如果报接受类型不一致请替换一致text/html或别的
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"application/json"];
+    //传入的参数
+    
+    
+    NSString *dataString = [NSString stringWithFormat:@"{accountId:%@,pwd:%@}", _inputusername, _inputpassword];
+    
+    
+    NSDictionary *requestDic =@{ @"sessionId":@"test",
+                                 @"token":@"test",
+                                 @"type":@"ios",
+                                 @"data": dataString
+                                 };
+    
+    //你的接口地址
+    NSString *url=@"http://61.188.188.54:8923/web_api/Account/UserLogin";
+    //发送请求
+    [manager POST:url parameters:requestDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"JSON: %@", responseObject);
+        NSDictionary *responseDic = [NSDictionary dictionaryWithDictionary:responseObject];
+        
+        NSLog(@"responseDic: %@", responseDic);
+        
+        [Config save_user_info_dictionary:responseDic];
+        [Config save_login_status:YES];
+        
+        _hud = [Utils createHUD];
+        _hud.labelText = @"登录成功";
+        _hud.userInteractionEnabled = NO;
+        [_hud hide:YES afterDelay:0.8];
+        
+        
+
+        
+        dispatch_time_t when=dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC));
+        
+        dispatch_after(when, dispatch_get_main_queue(), ^{
+                RootViewController *rootViewController = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).rootViewController;
+            
+                if (rootViewController.originalContentViewController) {
+                         rootViewController.contentViewController = rootViewController.originalContentViewController;
+                    }
+                    else{
+                        rootViewController.originalContentViewController = [rootViewController.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"];
+                        rootViewController.contentViewController = rootViewController.originalContentViewController;
+                    }
+            
+        });
+        
+//        _accessTokenStr = responseDic[@"result"][@"data"][@"accessToken"];
+//        NSLog(@"AccessToken=%@", _accessTokenStr);
+//        [EZOpenSDK initLibWithAppKey:AppKey];
+//        [[GlobalKit shareKit] setAccessToken:_accessTokenStr];
+//        [EZOpenSDK setAccessToken:_accessTokenStr];
+//        [self addRefreshKit];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"Error: %@", error);
+        
+        _hud = [Utils createHUD];
+        _hud.labelText = @"服务器链接超时";
+        _hud.userInteractionEnabled = NO;
+        
+        [_hud hide:YES afterDelay:1];
+        
+//        dispatch_time_t when=dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC));
+//        
+//        dispatch_after(when, dispatch_get_main_queue(), ^{
+//
+//
+//        });
+    }];
+    
+}
 
 
 

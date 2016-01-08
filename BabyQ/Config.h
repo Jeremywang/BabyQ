@@ -34,4 +34,9 @@
 + (void)save_login_status:(BOOL)isLogin;
 + (BOOL)get_login_status;
 
++ (void)save_user_info_dictionary:(NSDictionary *)dic;
+
++ (NSDictionary *)get_user_info_dictionary;
+
+
 @end

@@ -29,7 +29,11 @@
 
 @property (nonatomic, strong) MBProgressHUD *hud;
 
-@property (nonatomic, strong) NSMutableArray *cameraList;
+@property (nonatomic, strong) NSMutableArray *remoteCameraList;
+
+@property (nonatomic, strong) NSMutableArray *localCameraList;
+
+@property (nonatomic, strong) NSMutableArray *userCameraList;
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
@@ -40,6 +44,10 @@
 @property (nonatomic, copy) NSString *serverTime;
 
 @property (nonatomic, copy) NSString *accessTokenStr;
+
+@property (nonatomic, strong) NSDictionary *userInfoDictionary;
+
+@property (nonatomic, copy) NSString *schoolName;
 
 
 @end
@@ -73,8 +81,21 @@
     self.tableView.backgroundView = imageView;
     
     
-    if(!_cameraList)
-        _cameraList = [NSMutableArray new];
+    if(!_remoteCameraList)
+        _remoteCameraList = [NSMutableArray new];
+    
+    if (!_userCameraList) {
+        _userCameraList = [NSMutableArray new];
+    }
+    
+    _userInfoDictionary = [Config get_user_info_dictionary];
+    _schoolName = _userInfoDictionary[@"result"][@"Schoolname"];
+    _localCameraList = _userInfoDictionary[@"result"][@"CameraList"];
+    //self.title = _schoolName;
+    self.navigationItem.title = _schoolName;
+
+    NSLog(@"Video list json:%@", _userInfoDictionary);
+    NSLog(@"Local camera list:%@", _localCameraList);
     
     [self GetServerTime];
     
@@ -153,7 +174,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    return [_cameraList count];
+    return [_userCameraList count];
 }
 
 
@@ -166,7 +187,7 @@
     
     //[cell setVideoListItem:[_dataArray objectAtIndex:indexPath.row]];
     
-    [cell setCameraInfo:[_cameraList objectAtIndexCheck:indexPath.row]];
+    [cell setCameraInfo:[_userCameraList objectAtIndexCheck:indexPath.row]];
     cell.parentViewController = self;
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -233,8 +254,26 @@
         [EZOpenSDK getCameraList:weakSelf.currentPageIndex++
                         pageSize:EZCameraListPageSize
                       completion:^(NSArray *cameraList, NSError *error) {
-                          [weakSelf.cameraList removeAllObjects];
-                          [weakSelf.cameraList addObjectsFromArray:cameraList];
+                          [weakSelf.remoteCameraList removeAllObjects];
+                          [weakSelf.remoteCameraList addObjectsFromArray:cameraList];
+                          [weakSelf.userCameraList removeAllObjects];
+                          ///
+                          for (int i = 0; i < [_localCameraList count]; i++) {
+                              
+                              NSString * localCameraId = [[_localCameraList objectAtIndexCheck:i] objectForKey:@"CameraId"];
+                              
+                              for (int j = 0; j < [_remoteCameraList count]; j++) {
+                                  
+                                  NSString * remoteCameraId = [[_remoteCameraList objectAtIndexCheck:j] cameraId];
+                                  if ([localCameraId isEqualToString:remoteCameraId]) {
+                                      [_userCameraList addObject:[_remoteCameraList objectAtIndexCheck:j]];
+                                      break;
+                                  }
+                              }
+                          }
+
+                          NSLog(@"userCameraList ADD = %@", _userCameraList);
+                          ///
                           [weakSelf.tableView reloadData];
                           [weakSelf.tableView.mj_header endRefreshing];
                           [weakSelf addFooter];
@@ -262,7 +301,25 @@
                               weakSelf.tableView.mj_footer.hidden = YES;
                               return;
                           }
-                          [weakSelf.cameraList addObjectsFromArray:cameraList];
+                          
+                          [weakSelf.remoteCameraList addObjectsFromArray:cameraList];
+                          [weakSelf.userCameraList removeAllObjects];
+                          ///
+                          for (int i = 0; i < [_localCameraList count]; i++) {
+                              
+                              NSString * localCameraId = [[_localCameraList objectAtIndexCheck:i] objectForKey:@"CameraId"];
+                              
+                              for (int j = 0; j < [_remoteCameraList count]; j++) {
+                                  
+                                  NSString * remoteCameraId = [[_remoteCameraList objectAtIndexCheck:j] cameraId];
+                                  if ([localCameraId isEqualToString:remoteCameraId]) {
+                                      [_userCameraList addObject:[_remoteCameraList objectAtIndexCheck:j]];
+                                  }
+                              }
+                          }
+                          
+                          NSLog(@"userCameraList ADD = %@", _userCameraList);
+                          
                           [weakSelf.tableView reloadData];
                           [weakSelf.tableView.mj_footer endRefreshing];
                       }];

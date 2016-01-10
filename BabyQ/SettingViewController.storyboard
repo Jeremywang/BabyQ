@@ -130,6 +130,6 @@
     <resources>
         <image name="default-portrait" width="36" height="36"/>
         <image name="mine-down.png" width="3000" height="1767"/>
-        <image name="user-background-320.png" width="240" height="300"/>
+        <image name="user-background-320.png" width="238" height="138"/>
     </resources>
 </document>

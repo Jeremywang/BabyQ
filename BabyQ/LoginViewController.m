@@ -597,31 +597,62 @@ static NSString * const kShowAccountOperation = @"ShowAccountOperation";
         
         NSLog(@"responseDic: %@", responseDic);
         
-        [Config save_user_info_dictionary:responseDic];
-        [Config save_login_status:YES];
+        NSInteger errorCode = [[responseDic objectForKey:@"code"] integerValue];
         
-        _hud = [Utils createHUD];
-        _hud.labelText = @"登录成功";
-        _hud.userInteractionEnabled = NO;
-        [_hud hide:YES afterDelay:0.8];
-        
+        if (errorCode == 200) {
+            [Config save_user_info_dictionary:responseDic];
+            [Config save_login_status:YES];
+            
+            _hud = [Utils createHUD];
+            _hud.labelText = @"登录成功";
+            _hud.userInteractionEnabled = NO;
+            [_hud hide:YES afterDelay:0.8];
+            
+            
+            
+            
+            dispatch_time_t when=dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC));
+            
+            dispatch_after(when, dispatch_get_main_queue(), ^{
+                RootViewController *rootViewController = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).rootViewController;
+                
+                if (rootViewController.originalContentViewController) {
+                    rootViewController.contentViewController = rootViewController.originalContentViewController;
+                }
+                else{
+                    rootViewController.originalContentViewController = [rootViewController.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"];
+                    rootViewController.contentViewController = rootViewController.originalContentViewController;
+                }
+                
+            });
+        } else if (errorCode == 101){
+            _hud = [Utils createHUD];
+            _hud.labelText = @"密码错误";
+            _hud.userInteractionEnabled = NO;
+            
+            [_hud hide:YES afterDelay:1];
+            
+        } else if (errorCode == 102){
+            _hud = [Utils createHUD];
+            _hud.labelText = @"用户名错误";
+            _hud.userInteractionEnabled = NO;
+            
+            [_hud hide:YES afterDelay:1];
+        } else if (errorCode == 103) {
+            _hud = [Utils createHUD];
+            _hud.labelText = @"用户名权限过期";
+            _hud.userInteractionEnabled = NO;
+            
+            [_hud hide:YES afterDelay:1];
+        } else {
+            _hud = [Utils createHUD];
+            _hud.labelText = @"请联系系统管理员";
+            _hud.userInteractionEnabled = NO;
+            
+            [_hud hide:YES afterDelay:1];
+        }
         
 
-        
-        dispatch_time_t when=dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC));
-        
-        dispatch_after(when, dispatch_get_main_queue(), ^{
-                RootViewController *rootViewController = ((AppDelegate*)[[UIApplication sharedApplication] delegate]).rootViewController;
-            
-                if (rootViewController.originalContentViewController) {
-                         rootViewController.contentViewController = rootViewController.originalContentViewController;
-                    }
-                    else{
-                        rootViewController.originalContentViewController = [rootViewController.storyboard instantiateViewControllerWithIdentifier:@"contentViewController"];
-                        rootViewController.contentViewController = rootViewController.originalContentViewController;
-                    }
-            
-        });
         
 //        _accessTokenStr = responseDic[@"result"][@"data"][@"accessToken"];
 //        NSLog(@"AccessToken=%@", _accessTokenStr);

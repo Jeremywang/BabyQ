@@ -79,6 +79,12 @@
                                     <constraint firstAttribute="width" constant="600" id="NCn-39-XGy"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INM-PM-gFK">
+                                <rect key="frame" x="253" y="197" width="95" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -88,6 +94,7 @@
                             <constraint firstItem="boJ-Qa-Tef" firstAttribute="top" secondItem="lpd-EU-KER" secondAttribute="bottom" id="Bbl-5d-lHh"/>
                             <constraint firstItem="eCM-vl-0a1" firstAttribute="top" secondItem="sGI-pU-KfG" secondAttribute="bottom" constant="30" id="DvE-ea-iP5"/>
                             <constraint firstItem="OhK-P3-45X" firstAttribute="top" secondItem="uOH-Lj-9E1" secondAttribute="bottom" constant="8" symbolic="YES" id="GYa-lS-rkn"/>
+                            <constraint firstItem="INM-PM-gFK" firstAttribute="top" secondItem="eCM-vl-0a1" secondAttribute="bottom" constant="8" symbolic="YES" id="Ip3-hg-Pn0"/>
                             <constraint firstAttribute="trailing" secondItem="lpd-EU-KER" secondAttribute="trailing" id="Nnc-xg-ckT"/>
                             <constraint firstItem="lpd-EU-KER" firstAttribute="leading" secondItem="OhK-P3-45X" secondAttribute="leading" id="PsH-Bd-g9t"/>
                             <constraint firstItem="lpd-EU-KER" firstAttribute="leading" secondItem="Hbw-LZ-bCz" secondAttribute="leading" id="SJl-S5-2nW"/>
@@ -95,7 +102,10 @@
                             <constraint firstItem="OhK-P3-45X" firstAttribute="leading" secondItem="Hbw-LZ-bCz" secondAttribute="leading" id="SeN-GO-3cC"/>
                             <constraint firstItem="OhK-P3-45X" firstAttribute="top" secondItem="eCM-vl-0a1" secondAttribute="bottom" constant="53" id="WUF-fb-aIh"/>
                             <constraint firstItem="lpd-EU-KER" firstAttribute="top" secondItem="uOH-Lj-9E1" secondAttribute="bottom" constant="185" id="aNn-qw-qCJ"/>
+                            <constraint firstItem="INM-PM-gFK" firstAttribute="leading" secondItem="eCM-vl-0a1" secondAttribute="leading" id="gip-ab-Fkt"/>
                             <constraint firstItem="lpd-EU-KER" firstAttribute="trailing" secondItem="OhK-P3-45X" secondAttribute="trailing" id="nfK-7o-HWp"/>
+                            <constraint firstItem="OhK-P3-45X" firstAttribute="top" secondItem="INM-PM-gFK" secondAttribute="bottom" constant="24" id="oc6-Rv-3iI"/>
+                            <constraint firstItem="INM-PM-gFK" firstAttribute="trailing" secondItem="eCM-vl-0a1" secondAttribute="trailing" id="vAQ-XR-mUR"/>
                             <constraint firstItem="lpd-EU-KER" firstAttribute="bottom" secondItem="boJ-Qa-Tef" secondAttribute="top" id="wr4-JB-jKt"/>
                             <constraint firstItem="uOH-Lj-9E1" firstAttribute="top" secondItem="sGI-pU-KfG" secondAttribute="bottom" id="yx1-nx-RNI"/>
                         </constraints>
@@ -104,6 +114,7 @@
                     <connections>
                         <outlet property="portrait" destination="eCM-vl-0a1" id="c42-Dv-XRb"/>
                         <outlet property="tableView" destination="OhK-P3-45X" id="XId-jL-sjj"/>
+                        <outlet property="usernameLabel" destination="INM-PM-gFK" id="EmB-XD-XO7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bYM-qB-QFn" userLabel="First Responder" sceneMemberID="firstResponder"/>

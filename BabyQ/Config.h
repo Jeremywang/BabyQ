@@ -38,5 +38,9 @@
 
 + (NSDictionary *)get_user_info_dictionary;
 
++ (void)save_user_name:(NSString *)nameStr;
+
++ (NSString *)get_user_name;
+
 
 @end

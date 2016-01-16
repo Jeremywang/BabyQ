@@ -14,7 +14,7 @@ NSString * const kService = @"OSChina";
 NSString * const kAccount = @"account";
 NSString * const kUserID = @"userID";
 
-NSString * const kUserName = @"name";
+//NSString * const kUserName = @"name";
 NSString * const kPortrait = @"portrait";
 NSString * const kUserScore = @"score";
 NSString * const kFavoriteCount = @"favoritecount";
@@ -38,6 +38,7 @@ NSString * const kTeamsArray = @"teams";
 NSString * const kLoginStatus = @"loginStatus";
 
 NSString * const kUserInfoDictionary = @"userInfoDictionary";
+NSString * const kUserName = @"userNameStr";
 
 #if TARGET_IPHONE_SIMULATOR
 #define SIMULATOR 1
@@ -162,6 +163,25 @@ NSString * const kUserInfoDictionary = @"userInfoDictionary";
     NSDictionary *userInfoDic = [userDefaults objectForKey:kUserInfoDictionary];
     
     return userInfoDic;
+}
+
+//存储宝宝名字
++ (void)save_user_name:(NSString *)nameStr
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    [userDefaults setObject:nameStr forKey:kUserName];
+    
+    [userDefaults synchronize];
+}
+
+//获取宝宝名字
+
++ (NSString *)get_user_name
+{
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *userName = [userDefaults objectForKey:kUserName];
+    
+    return userName;
 }
 
 @end

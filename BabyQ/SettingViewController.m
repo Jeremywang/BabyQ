@@ -33,6 +33,8 @@
 
 @property (nonatomic, weak) IBOutlet UIImageView *portrait;
 
+@property (nonatomic, weak) IBOutlet UILabel *usernameLabel;
+
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 
 @property(nonatomic, strong) NSData *fileData;
@@ -89,6 +91,7 @@
 {
     [super viewDidAppear:animated];
     [self LoadUserIcon];
+    [_usernameLabel setText:[Config get_user_name]];
     [self.tableView reloadData];
 }
 

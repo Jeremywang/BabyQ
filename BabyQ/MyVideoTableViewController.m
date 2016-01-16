@@ -29,11 +29,11 @@
 
 @property (nonatomic, strong) MBProgressHUD *hud;
 
-@property (nonatomic, strong) NSMutableArray *remoteCameraList;
+@property (nonatomic, strong) NSMutableArray *remoteCameraList; //系统摄像头列表
 
-@property (nonatomic, strong) NSMutableArray *localCameraList;
+@property (nonatomic, strong) NSMutableArray *localCameraList;  //用户输入的帐号摄像头列表
 
-@property (nonatomic, strong) NSMutableArray *userCameraList;
+@property (nonatomic, strong) NSMutableArray *userCameraList;   //数据综合后的列表
 
 @property (nonatomic, strong) NSMutableArray *dataArray;
 
@@ -48,6 +48,8 @@
 @property (nonatomic, strong) NSDictionary *userInfoDictionary;
 
 @property (nonatomic, copy) NSString *schoolName;
+
+@property (nonatomic, copy) NSString *userName;
 
 
 @end
@@ -90,6 +92,9 @@
     
     _userInfoDictionary = [Config get_user_info_dictionary];
     _schoolName = _userInfoDictionary[@"result"][@"Schoolname"];
+    _userName = _userInfoDictionary[@"result"][@"name"];
+    [Config save_user_name:_userName];
+    
     _localCameraList = _userInfoDictionary[@"result"][@"CameraList"];
     //self.title = _schoolName;
     self.navigationItem.title = _schoolName;

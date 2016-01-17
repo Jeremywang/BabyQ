@@ -120,7 +120,7 @@
                   moduleName = "&#x4e56;&#x5b9d;&#x5b9d;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jeremy/GitHub/BabyQ/BabyQ/MyVideoTableViewController.m"
-                  timestampString = "474655594.018999"
+                  timestampString = "474659492.943338"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "30"
@@ -135,7 +135,7 @@
                   moduleName = "&#x4e56;&#x5b9d;&#x5b9d;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jeremy/GitHub/BabyQ/BabyQ/MyVideoTableViewController.m"
-                  timestampString = "474655594.019243"
+                  timestampString = "474659492.943492"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
@@ -174,22 +174,6 @@
             startingLineNumber = "482"
             endingLineNumber = "482"
             landmarkName = "-playButtonClicked:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "BabyQ/MyVideoTableViewController.m"
-            timestampString = "474655593.8202"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "262"
-            endingLineNumber = "262"
-            landmarkName = "-addRefreshKit"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

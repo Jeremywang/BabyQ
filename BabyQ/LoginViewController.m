@@ -644,6 +644,13 @@ static NSString * const kShowAccountOperation = @"ShowAccountOperation";
             _hud.userInteractionEnabled = NO;
             
             [_hud hide:YES afterDelay:1];
+        } else if (errorCode == 104) {
+            _hud = [Utils createHUD];
+            _hud.labelText = @"你还没有摄像头权限,请联系系统管理员";
+            _hud.userInteractionEnabled = NO;
+            
+            [_hud hide:YES afterDelay:1];
+        
         } else {
             _hud = [Utils createHUD];
             _hud.labelText = @"请联系系统管理员";

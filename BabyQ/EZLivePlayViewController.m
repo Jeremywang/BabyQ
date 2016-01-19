@@ -82,7 +82,6 @@
 - (void)dealloc
 {
     [EZOpenSDK releasePlayer:_player];
-    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"wifiStatesChanged" object:nil];
 }
 
 - (void)centerScrollViewContents {
@@ -258,7 +257,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideQualityView) object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:@"wifiStatesChanged" object:nil];
-    [EZOpenSDK releasePlayer:_player];
     [super viewWillDisappear:animated];
 }
 

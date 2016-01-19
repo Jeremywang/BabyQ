@@ -15,6 +15,14 @@
  */
 @property (nonatomic, copy) NSString *alarmId;
 /**
+ *  设备序列号
+ */
+@property (nonatomic, copy) NSString *deviceSerial;
+/**
+ *  通道号
+ */
+@property (nonatomic) NSInteger channelNo;
+/**
  *  报警名称
  */
 @property (nonatomic, copy) NSString *alarmName;

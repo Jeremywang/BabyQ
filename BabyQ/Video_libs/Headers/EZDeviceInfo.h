@@ -11,9 +11,41 @@
 @interface EZDeviceInfo : NSObject
 
 /**
+ *  设备ID（索引）
+ */
+@property (nonatomic, copy) NSString *deviceId;
+/**
  *  设备序列号
  */
-@property (nonatomic, copy, readonly) NSString *serialNumber;
+@property (nonatomic, copy) NSString *deviceSerial;
+/**
+ *  设备全序列号
+ */
+@property (nonatomic, copy) NSString *fullSerial;
+/**
+ *  设备名称
+ */
+@property (nonatomic, copy) NSString *deviceName;
+/**
+ *  是否开启活动检测
+ */
+@property (nonatomic) BOOL isDefence;
+/**
+ *  是否开启加密
+ */
+@property (nonatomic) BOOL isEncrypt;
+/**
+ *  设备状态
+ */
+@property (nonatomic) NSInteger status;
+/**
+ *  设备图片
+ */
+@property (nonatomic, copy) NSString *picUrl;
+/**
+ *  设备类型
+ */
+@property (nonatomic, copy) NSString *model;
 /**
  *  是否支持布撤防
  */
@@ -38,14 +70,10 @@
  *  是否支持升级
  */
 @property (nonatomic, readonly) BOOL isSupportUpgrade;
-
 /**
- *  根据cameraId构造设备信息对象
- *
- *  @param cameraId 摄像头ID
- *
- *  @return EZDeviceInfo实例对象
+ *  设备能力集协议
  */
-- (instancetype)initWithCameraId:(NSString *)cameraId;
+@property (nonatomic, copy) NSString *supportExtShort;
+
 
 @end

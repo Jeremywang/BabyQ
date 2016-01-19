@@ -329,7 +329,7 @@
             if ([Config get_login_status]) {
                 [Config save_login_status:NO];
                 
-                [EZOpenSDK logout:^(id responseObject, NSError *error) {
+                [EZOpenSDK logout:^(NSError *error) {
                     [[GlobalKit shareKit] clearSession];
                 }];
                 

@@ -50,6 +50,7 @@
  *  设备在线状态
  */
 @property (nonatomic) BOOL isOnline;
+
 /**
  *  是否开启活动检测
  */

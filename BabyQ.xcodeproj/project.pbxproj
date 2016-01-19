@@ -77,7 +77,6 @@
 		3F1239EA1C15DA4500E9962E /* libiconv.2.4.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1239E91C15DA4500E9962E /* libiconv.2.4.0.tbd */; };
 		3F1239EC1C15DA6200E9962E /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1239EB1C15DA6200E9962E /* libstdc++.6.0.9.tbd */; };
 		3F1239EF1C15E6E600E9962E /* VideoListItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F1239EE1C15E6E600E9962E /* VideoListItem.m */; };
-		3F123A551C16C4E300E9962E /* libEZOpenSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F1239FE1C16C4E300E9962E /* libEZOpenSDK.a */; };
 		3F123A561C16C4E300E9962E /* applink.c in Sources */ = {isa = PBXBuildFile; fileRef = 3F123A031C16C4E300E9962E /* applink.c */; };
 		3F123A571C16C4E300E9962E /* libcrypto.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F123A531C16C4E300E9962E /* libcrypto.a */; };
 		3F123A581C16C4E300E9962E /* libssl.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F123A541C16C4E300E9962E /* libssl.a */; };
@@ -108,6 +107,7 @@
 		3F72A7691C14606200371B17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F72A7681C14606200371B17 /* main.m */; };
 		3F72A76C1C14606200371B17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3F72A76B1C14606200371B17 /* AppDelegate.m */; };
 		3F72A77A1C14606300371B17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F72A7781C14606300371B17 /* LaunchScreen.storyboard */; };
+		3FADC3131C4E5BB200FBE03B /* libEZOpenSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FADC3121C4E5BB200FBE03B /* libEZOpenSDK.a */; };
 		3FC2A57C1C173D3A0085BE96 /* EZQRView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2A56D1C173D3A0085BE96 /* EZQRView.m */; };
 		3FC2A57E1C173D3A0085BE96 /* HIKLoadPercentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2A5711C173D3A0085BE96 /* HIKLoadPercentView.m */; };
 		3FC2A57F1C173D3A0085BE96 /* HIKLoadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2A5731C173D3A0085BE96 /* HIKLoadView.m */; };
@@ -238,19 +238,6 @@
 		3F1239EB1C15DA6200E9962E /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
 		3F1239ED1C15E6E600E9962E /* VideoListItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoListItem.h; sourceTree = "<group>"; };
 		3F1239EE1C15E6E600E9962E /* VideoListItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoListItem.m; sourceTree = "<group>"; };
-		3F1239F21C16C4E300E9962E /* EZAccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZAccessToken.h; sourceTree = "<group>"; };
-		3F1239F31C16C4E300E9962E /* EZAlarmInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZAlarmInfo.h; sourceTree = "<group>"; };
-		3F1239F41C16C4E300E9962E /* EZCameraInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZCameraInfo.h; sourceTree = "<group>"; };
-		3F1239F51C16C4E300E9962E /* EZCheckFavoriteSquareVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZCheckFavoriteSquareVideo.h; sourceTree = "<group>"; };
-		3F1239F61C16C4E300E9962E /* EZCloudRecordFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZCloudRecordFile.h; sourceTree = "<group>"; };
-		3F1239F71C16C4E300E9962E /* EZDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZDeviceInfo.h; sourceTree = "<group>"; };
-		3F1239F81C16C4E300E9962E /* EZDeviceRecordFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZDeviceRecordFile.h; sourceTree = "<group>"; };
-		3F1239F91C16C4E300E9962E /* EZFavoriteSquareVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZFavoriteSquareVideo.h; sourceTree = "<group>"; };
-		3F1239FA1C16C4E300E9962E /* EZOpenSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZOpenSDK.h; sourceTree = "<group>"; };
-		3F1239FB1C16C4E300E9962E /* EZPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZPlayer.h; sourceTree = "<group>"; };
-		3F1239FC1C16C4E300E9962E /* EZSquareChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZSquareChannel.h; sourceTree = "<group>"; };
-		3F1239FD1C16C4E300E9962E /* EZSquareVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZSquareVideo.h; sourceTree = "<group>"; };
-		3F1239FE1C16C4E300E9962E /* libEZOpenSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEZOpenSDK.a; sourceTree = "<group>"; };
 		3F123A021C16C4E300E9962E /* aes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aes.h; sourceTree = "<group>"; };
 		3F123A031C16C4E300E9962E /* applink.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = applink.c; sourceTree = "<group>"; };
 		3F123A041C16C4E300E9962E /* asn1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asn1.h; sourceTree = "<group>"; };
@@ -369,6 +356,26 @@
 		3F72A76B1C14606200371B17 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		3F72A7791C14606300371B17 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F72A77B1C14606300371B17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FADC2FF1C4E5BB200FBE03B /* EZAccessToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZAccessToken.h; sourceTree = "<group>"; };
+		3FADC3001C4E5BB200FBE03B /* EZAlarmInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZAlarmInfo.h; sourceTree = "<group>"; };
+		3FADC3011C4E5BB200FBE03B /* EZCameraInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZCameraInfo.h; sourceTree = "<group>"; };
+		3FADC3021C4E5BB200FBE03B /* EZCheckFavoriteSquareVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZCheckFavoriteSquareVideo.h; sourceTree = "<group>"; };
+		3FADC3031C4E5BB200FBE03B /* EZCloudRecordFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZCloudRecordFile.h; sourceTree = "<group>"; };
+		3FADC3041C4E5BB200FBE03B /* EZDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZDeviceInfo.h; sourceTree = "<group>"; };
+		3FADC3051C4E5BB200FBE03B /* EZDeviceRecordFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZDeviceRecordFile.h; sourceTree = "<group>"; };
+		3FADC3061C4E5BB200FBE03B /* EZDeviceUpgradeStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZDeviceUpgradeStatus.h; sourceTree = "<group>"; };
+		3FADC3071C4E5BB200FBE03B /* EZDeviceVersion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZDeviceVersion.h; sourceTree = "<group>"; };
+		3FADC3081C4E5BB200FBE03B /* EZFavoriteSquareVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZFavoriteSquareVideo.h; sourceTree = "<group>"; };
+		3FADC3091C4E5BB200FBE03B /* EZLeaveMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZLeaveMessage.h; sourceTree = "<group>"; };
+		3FADC30A1C4E5BB200FBE03B /* EZOpenSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZOpenSDK.h; sourceTree = "<group>"; };
+		3FADC30B1C4E5BB200FBE03B /* EZPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZPlayer.h; sourceTree = "<group>"; };
+		3FADC30C1C4E5BB200FBE03B /* EZProbeDeviceInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZProbeDeviceInfo.h; sourceTree = "<group>"; };
+		3FADC30D1C4E5BB200FBE03B /* EZSquareChannel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZSquareChannel.h; sourceTree = "<group>"; };
+		3FADC30E1C4E5BB200FBE03B /* EZSquareVideo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZSquareVideo.h; sourceTree = "<group>"; };
+		3FADC30F1C4E5BB200FBE03B /* EZStartPushParameter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZStartPushParameter.h; sourceTree = "<group>"; };
+		3FADC3101C4E5BB200FBE03B /* EZStorageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZStorageInfo.h; sourceTree = "<group>"; };
+		3FADC3111C4E5BB200FBE03B /* EZUserInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZUserInfo.h; sourceTree = "<group>"; };
+		3FADC3121C4E5BB200FBE03B /* libEZOpenSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libEZOpenSDK.a; sourceTree = "<group>"; };
 		3FC2A56C1C173D3A0085BE96 /* EZQRView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZQRView.h; sourceTree = "<group>"; };
 		3FC2A56D1C173D3A0085BE96 /* EZQRView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EZQRView.m; sourceTree = "<group>"; };
 		3FC2A5701C173D3A0085BE96 /* HIKLoadPercentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HIKLoadPercentView.h; sourceTree = "<group>"; };
@@ -409,6 +416,7 @@
 			files = (
 				3F1239B21C15BD0C00E9962E /* MobileCoreServices.framework in Frameworks */,
 				3F1239E61C15DA2700E9962E /* GLKit.framework in Frameworks */,
+				3FADC3131C4E5BB200FBE03B /* libEZOpenSDK.a in Frameworks */,
 				3F1239E81C15DA3600E9962E /* VideoToolbox.framework in Frameworks */,
 				3F123A5C1C16C69D00E9962E /* AudioToolbox.framework in Frameworks */,
 				3F123A5A1C16C68C00E9962E /* CoreMedia.framework in Frameworks */,
@@ -435,7 +443,6 @@
 				3F12399C1C15BC7200E9962E /* libz.1.2.5.tbd in Frameworks */,
 				3F12399A1C15BC6800E9962E /* Security.framework in Frameworks */,
 				3F1239981C15BC5D00E9962E /* JavaScriptCore.framework in Frameworks */,
-				3F123A551C16C4E300E9962E /* libEZOpenSDK.a in Frameworks */,
 				3F1239961C15BC5300E9962E /* libstdc++.tbd in Frameworks */,
 				3F1239941C15BC4600E9962E /* CoreText.framework in Frameworks */,
 				3F1239921C15BC3B00E9962E /* ImageIO.framework in Frameworks */,
@@ -721,30 +728,11 @@
 		3F1239F01C16C4E300E9962E /* Video_libs */ = {
 			isa = PBXGroup;
 			children = (
-				3F1239F11C16C4E300E9962E /* Headers */,
-				3F1239FE1C16C4E300E9962E /* libEZOpenSDK.a */,
+				3FADC2FE1C4E5BB200FBE03B /* Headers */,
+				3FADC3121C4E5BB200FBE03B /* libEZOpenSDK.a */,
 				3F1239FF1C16C4E300E9962E /* openssl */,
 			);
 			path = Video_libs;
-			sourceTree = "<group>";
-		};
-		3F1239F11C16C4E300E9962E /* Headers */ = {
-			isa = PBXGroup;
-			children = (
-				3F1239F21C16C4E300E9962E /* EZAccessToken.h */,
-				3F1239F31C16C4E300E9962E /* EZAlarmInfo.h */,
-				3F1239F41C16C4E300E9962E /* EZCameraInfo.h */,
-				3F1239F51C16C4E300E9962E /* EZCheckFavoriteSquareVideo.h */,
-				3F1239F61C16C4E300E9962E /* EZCloudRecordFile.h */,
-				3F1239F71C16C4E300E9962E /* EZDeviceInfo.h */,
-				3F1239F81C16C4E300E9962E /* EZDeviceRecordFile.h */,
-				3F1239F91C16C4E300E9962E /* EZFavoriteSquareVideo.h */,
-				3F1239FA1C16C4E300E9962E /* EZOpenSDK.h */,
-				3F1239FB1C16C4E300E9962E /* EZPlayer.h */,
-				3F1239FC1C16C4E300E9962E /* EZSquareChannel.h */,
-				3F1239FD1C16C4E300E9962E /* EZSquareVideo.h */,
-			);
-			path = Headers;
 			sourceTree = "<group>";
 		};
 		3F1239FF1C16C4E300E9962E /* openssl */ = {
@@ -944,6 +932,32 @@
 				3F72A7681C14606200371B17 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3FADC2FE1C4E5BB200FBE03B /* Headers */ = {
+			isa = PBXGroup;
+			children = (
+				3FADC2FF1C4E5BB200FBE03B /* EZAccessToken.h */,
+				3FADC3001C4E5BB200FBE03B /* EZAlarmInfo.h */,
+				3FADC3011C4E5BB200FBE03B /* EZCameraInfo.h */,
+				3FADC3021C4E5BB200FBE03B /* EZCheckFavoriteSquareVideo.h */,
+				3FADC3031C4E5BB200FBE03B /* EZCloudRecordFile.h */,
+				3FADC3041C4E5BB200FBE03B /* EZDeviceInfo.h */,
+				3FADC3051C4E5BB200FBE03B /* EZDeviceRecordFile.h */,
+				3FADC3061C4E5BB200FBE03B /* EZDeviceUpgradeStatus.h */,
+				3FADC3071C4E5BB200FBE03B /* EZDeviceVersion.h */,
+				3FADC3081C4E5BB200FBE03B /* EZFavoriteSquareVideo.h */,
+				3FADC3091C4E5BB200FBE03B /* EZLeaveMessage.h */,
+				3FADC30A1C4E5BB200FBE03B /* EZOpenSDK.h */,
+				3FADC30B1C4E5BB200FBE03B /* EZPlayer.h */,
+				3FADC30C1C4E5BB200FBE03B /* EZProbeDeviceInfo.h */,
+				3FADC30D1C4E5BB200FBE03B /* EZSquareChannel.h */,
+				3FADC30E1C4E5BB200FBE03B /* EZSquareVideo.h */,
+				3FADC30F1C4E5BB200FBE03B /* EZStartPushParameter.h */,
+				3FADC3101C4E5BB200FBE03B /* EZStorageInfo.h */,
+				3FADC3111C4E5BB200FBE03B /* EZUserInfo.h */,
+			);
+			path = Headers;
 			sourceTree = "<group>";
 		};
 		E224A6B47E732C9B283F401A /* Pods */ = {

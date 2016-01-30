@@ -53,4 +53,10 @@
  */
 @property (nonatomic) NSInteger preTime;
 
+/**
+ *  4530 扩展字段
+ */
+@property (nonatomic, copy) NSString *customerType;
+@property (nonatomic, copy) NSString *customerInfo;
+
 @end

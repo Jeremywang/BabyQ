@@ -45,7 +45,7 @@
 /**
  *  N1，R1，A1等设备关联的设备数
  */
-@property (nonatomic) int relatedDeviceCount;
+@property (nonatomic) NSInteger relatedDeviceCount;
 /**
  *  能力集
  */

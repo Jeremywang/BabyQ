@@ -27,11 +27,13 @@
  */
 @property (nonatomic, copy) NSString *deviceName;
 /**
- *  是否开启活动检测
+ * v3.3版本中该类型发生改变，请注意：
+ * IPC设备的含义是--是否开启活动检测，只有0和1；
+ * A1设备中含义--是布防状态，0:睡眠 8:在家 16:外出
  */
-@property (nonatomic) BOOL isDefence;
+@property (nonatomic) NSInteger isDefence;
 /**
- *  是否开启加密
+ *  是否开启加密，获取设备列表（getDeviceList接口）获取的对象没有该字段，只有获取单个设备信息的时候才有该字段
  */
 @property (nonatomic) BOOL isEncrypt;
 /**
@@ -46,6 +48,10 @@
  *  设备类型
  */
 @property (nonatomic, copy) NSString *model;
+/**
+ *  设备版本号
+ */
+@property (nonatomic, copy) NSString *deviceVersion;
 /**
  *  是否支持布撤防
  */

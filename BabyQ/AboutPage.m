@@ -35,12 +35,64 @@
     [self.view addSubview:logo];
     
     [logo mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(ws.view.mas_top);
-        make.left.equalTo(ws.view.mas_left);
+//        make.top.equalTo(ws.view.mas_top);
+//        make.left.equalTo(ws.view.mas_left);
+//        make.width.equalTo(ws.view.mas_width);
+//        make.height.equalTo(ws.view.mas_height);
+//        make.centerX.mas_equalTo(ws.view.mas_centerX);
+//        make.centerY.mas_equalTo(ws.view.mas_centerY);
+        make.edges.equalTo(ws.view);
+    }];
+    
+    
+    NSString *versionStr = [[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString *)kCFBundleVersionKey];      //获取项目版本号
+    
+    NSString *version = [NSString stringWithFormat:@"version: %@",  versionStr];
+    
+    UILabel *versionLabel = [UILabel new];
+    [versionLabel setText:version];
+    versionLabel.textAlignment = NSTextAlignmentCenter;
+    versionLabel.textColor = [UIColor grayColor];
+    
+    [self.view addSubview:versionLabel];
+    
+    [versionLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.mas_equalTo(@200);
+        make.centerX.equalTo(ws.view.mas_centerX);
+        make.centerY.equalTo(ws.view.mas_centerY).with.offset(30);
+    }];
+    
+    
+    NSString *serviceNumStr = @"服务电话: 0817-2688188";
+    
+    UILabel *phoneLabel = [UILabel new];
+    [phoneLabel setText:serviceNumStr];
+    phoneLabel.textAlignment = NSTextAlignmentCenter;
+    phoneLabel.textColor = [UIColor grayColor];
+    
+    [self.view addSubview:phoneLabel];
+    
+    [phoneLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.width.equalTo(ws.view.mas_width);
-        make.height.equalTo(ws.view.mas_height);
-        make.centerX.mas_equalTo(ws.view.mas_centerX);
-        make.centerY.mas_equalTo(ws.view.mas_centerY);
+        make.centerX.equalTo(ws.view.mas_centerX);
+        make.centerY.equalTo(ws.view.mas_centerY).with.offset(60);
+    }];
+    
+    
+    
+    NSString *versionOWN = @"@成都鑫方泰格栅科技有限公司  版权所有";
+    
+    UILabel *versionOWN_Lable = [UILabel new];
+    [versionOWN_Lable setText:versionOWN];
+    versionOWN_Lable.textAlignment = NSTextAlignmentCenter;
+    versionOWN_Lable.textColor = [UIColor grayColor];
+    
+    [self.view addSubview:versionOWN_Lable];
+    
+    [versionOWN_Lable mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(ws.view.mas_width);
+        make.centerX.equalTo(ws.view.mas_centerX);
+        make.bottom.equalTo(ws.view.mas_bottom).with.offset(-100);
     }];
     
 //    UILabel *declarationLabel = [UILabel new];

@@ -50,10 +50,13 @@
  *  设备在线状态
  */
 @property (nonatomic) BOOL isOnline;
-
 /**
  *  是否开启活动检测
  */
 @property (nonatomic) BOOL isDefence;
+/**
+ *  视频清晰度
+ */
+@property (nonatomic) NSInteger videoLevel;
 
 @end

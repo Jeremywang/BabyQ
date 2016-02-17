@@ -23,7 +23,7 @@
 
 #import <AFNetworking.h>
 
-#define EZCameraListPageSize 10
+#define EZCameraListPageSize 30
 
 @interface MyVideoTableViewController ()
 

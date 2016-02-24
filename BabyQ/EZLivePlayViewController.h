@@ -13,6 +13,9 @@
 @property (nonatomic, copy) NSString *cameraId;
 @property (nonatomic, copy) NSString *cameraName;
 
+//@property (nonatomic, strong) NSHashTable *table;
+//@property (nonatomic, strong) NSMapTable
+
 //- (void)imageSavedToPhotosAlbum:(UIImage *)image
 //       didFinishSavingWithError:(NSError *)error
 //                    contextInfo:(void *)contextInfo;

@@ -21,7 +21,7 @@
 
 @interface EZLivePlayViewController ()<EZPlayerDelegate, UIAlertViewDelegate>
 {
-//    BOOL _isOpenSound;
+    BOOL _isOpenSound;
     BOOL _isPlaying;
     
 //    NSTimer *_recordTimer;
@@ -171,7 +171,7 @@
     
     
     self.largeBackButton.hidden = YES;
-//    _isOpenSound = YES;
+    _isOpenSound = YES;
     
 //    [self.controlButton centerImageAndTitlec];
 //    [self.talkButton dd_centerImageAndTitle];
@@ -345,10 +345,10 @@
         [self.playButton setImage:[UIImage imageNamed:@"preview_stopplay_btn"] forState:UIControlStateNormal];
         _isPlaying = YES;
         
-//        if(!_isOpenSound)
-//        {
-//            [player closeSound];
-//        }
+        if(!_isOpenSound)
+        {
+            [player closeSound];
+        }
     }
     else if (messageCode == PLAYER_NEED_VALIDATE_CODE)
     {
@@ -424,21 +424,21 @@
 //                     }];
 //}
 
-//- (IBAction)voiceButtonClicked:(id)sender
-//{
-//    if(_isOpenSound){
-//        [_player closeSound];
-//        [self.voiceButton setImage:[UIImage imageNamed:@"preview_unvoice_btn_sel"] forState:UIControlStateHighlighted];
-//        [self.voiceButton setImage:[UIImage imageNamed:@"preview_unvoice_btn"] forState:UIControlStateNormal];
-//    }
-//    else
-//    {
-//        [_player openSound];
-//        [self.voiceButton setImage:[UIImage imageNamed:@"preview_voice_btn_sel"] forState:UIControlStateHighlighted];
-//        [self.voiceButton setImage:[UIImage imageNamed:@"preview_voice_btn"] forState:UIControlStateNormal];
-//    }
-//    _isOpenSound = !_isOpenSound;
-//}
+- (IBAction)voiceButtonClicked:(id)sender
+{
+    if(_isOpenSound){
+        [_player closeSound];
+        [self.voiceButton setImage:[UIImage imageNamed:@"preview_unvoice_btn_sel"] forState:UIControlStateHighlighted];
+        [self.voiceButton setImage:[UIImage imageNamed:@"preview_unvoice_btn"] forState:UIControlStateNormal];
+    }
+    else
+    {
+        [_player openSound];
+        [self.voiceButton setImage:[UIImage imageNamed:@"preview_voice_btn_sel"] forState:UIControlStateHighlighted];
+        [self.voiceButton setImage:[UIImage imageNamed:@"preview_voice_btn"] forState:UIControlStateNormal];
+    }
+    _isOpenSound = !_isOpenSound;
+}
 
 - (IBAction)playButtonClicked:(id)sender
 {

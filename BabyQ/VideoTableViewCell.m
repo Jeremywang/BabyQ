@@ -50,7 +50,7 @@
         self.offlineIcon.hidden = NO;
     }
     
-    [_videoImageView setImageWithURL:[NSURL URLWithString:cameraInfo.picUrl] placeholderImage:[UIImage imageNamed:@"Cell-photo"]];
+    [_videoImageView setImageWithURL:[NSURL URLWithString:cameraInfo.picUrl] placeholderImage:[UIImage imageNamed:@"weather.png"]];
     
 //    [self.contentView dd_addSeparatorWithType:ViewSeparatorTypeBottom];
 //    [self.contentView dd_addSeparatorWithType:ViewSeparatorTypeTop];

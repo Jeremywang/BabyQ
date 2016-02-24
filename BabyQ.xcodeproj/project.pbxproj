@@ -119,7 +119,6 @@
 		3FDE64201C20606400885E25 /* ChangePasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FDE641F1C20606400885E25 /* ChangePasswordViewController.m */; };
 		3FDE64221C2060A000885E25 /* ChangePassword.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FDE64211C2060A000885E25 /* ChangePassword.storyboard */; };
 		3FDE64241C26A59700885E25 /* LaunchScreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FDE64231C26A59700885E25 /* LaunchScreen.png */; };
-		3FDE64261C26A81300885E25 /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FDE64251C26A81300885E25 /* about.png */; };
 		3FDE642E1C26DDF200885E25 /* mine-down.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FDE642D1C26DDF200885E25 /* mine-down.png */; };
 		3FDE643B1C26E6EB00885E25 /* password.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FDE64391C26E6EB00885E25 /* password.png */; };
 		3FDE643C1C26E6EB00885E25 /* username.png in Resources */ = {isa = PBXBuildFile; fileRef = 3FDE643A1C26E6EB00885E25 /* username.png */; };
@@ -398,7 +397,6 @@
 		3FDE641F1C20606400885E25 /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
 		3FDE64211C2060A000885E25 /* ChangePassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChangePassword.storyboard; sourceTree = "<group>"; };
 		3FDE64231C26A59700885E25 /* LaunchScreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LaunchScreen.png; sourceTree = "<group>"; };
-		3FDE64251C26A81300885E25 /* about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about.png; sourceTree = "<group>"; };
 		3FDE642D1C26DDF200885E25 /* mine-down.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "mine-down.png"; sourceTree = "<group>"; };
 		3FDE64391C26E6EB00885E25 /* password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = password.png; sourceTree = "<group>"; };
 		3FDE643A1C26E6EB00885E25 /* username.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = username.png; sourceTree = "<group>"; };
@@ -499,7 +497,6 @@
 			isa = PBXGroup;
 			children = (
 				3FDE64551C26F5B800885E25 /* backbutton.png */,
-				3FDE64251C26A81300885E25 /* about.png */,
 				3F1BD6391C2BF3A800AD9DE9 /* VideoBackground.png */,
 				3FDE64231C26A59700885E25 /* LaunchScreen.png */,
 				3F1236F81C15481C00E9962E /* FontAwesome.ttf */,
@@ -1049,7 +1046,6 @@
 				3F1BD64A1C2CE45F00AD9DE9 /* tabbar-video@3x.png in Resources */,
 				3F1BD6501C2CE59500AD9DE9 /* user-background@3x.png in Resources */,
 				3F5A8A511C3BB1EA0017302E /* SettingViewController.storyboard in Resources */,
-				3FDE64261C26A81300885E25 /* about.png in Resources */,
 				3F1BD6481C2CE45F00AD9DE9 /* tabbar-video-selected@3x.png in Resources */,
 				3F72A77A1C14606300371B17 /* LaunchScreen.storyboard in Resources */,
 				3F1BD6461C2CE45F00AD9DE9 /* tabbar-mine@3x.png in Resources */,
@@ -1319,7 +1315,7 @@
 					"$(PROJECT_DIR)/BabyQ/Video_libs",
 					"$(PROJECT_DIR)/BabyQ/Video_libs/openssl/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Fuyou.BabyQ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chendufuyou.BabyQ;
 				PRODUCT_NAME = "乖宝宝";
 				PROVISIONING_PROFILE = "";
 			};
@@ -1352,7 +1348,7 @@
 					"$(PROJECT_DIR)/BabyQ/Video_libs",
 					"$(PROJECT_DIR)/BabyQ/Video_libs/openssl/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.Fuyou.BabyQ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.chendufuyou.BabyQ;
 				PRODUCT_NAME = "乖宝宝";
 				PROVISIONING_PROFILE = "";
 			};

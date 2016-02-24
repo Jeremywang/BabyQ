@@ -142,7 +142,8 @@ static NSString * const kShowAccountOperation = @"ShowAccountOperation";
     _inputpassword = _passwordField.text;
     
     [self LoginRequest];
- 
+    
+
 //    NSString *plistPath = [[NSBundle mainBundle] pathForResource:@"user" ofType:@"plist"];
 //    
 //    NSDictionary *user = nil;
@@ -589,7 +590,8 @@ static NSString * const kShowAccountOperation = @"ShowAccountOperation";
                                  };
     
     //你的接口地址
-    NSString *url=@"http://61.188.188.54:8923/web_api/Account/UserLogin";
+    //NSString *url=@"http://61.188.188.54:8923/web_api/Account/UserLogin";
+    NSString *url=@"http://101.200.165.91:8923/web_api/Account/UserLogin";
     //发送请求
     [manager POST:url parameters:requestDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
         NSLog(@"JSON: %@", responseObject);

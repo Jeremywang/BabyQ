@@ -1005,7 +1005,7 @@
 						DevelopmentTeam = DD6C2YQSJ9;
 						SystemCapabilities = {
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -1222,6 +1222,7 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -1245,6 +1246,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "f313f48f-9666-44f2-a4a9-225fe044084d";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1266,7 +1268,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SymphonyTeleca(Chengdu) Solutions Co., Ltd. (DD6C2YQSJ9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SymphonyTeleca(Chengdu) Solutions Co., Ltd. (DD6C2YQSJ9)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = YES;
@@ -1283,6 +1286,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "f313f48f-9666-44f2-a4a9-225fe044084d";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1293,31 +1297,21 @@
 			baseConfigurationReference = 09A52127730D1A047168FD35 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: jeremy.wang@symphonyteleca.com (48R3959T95)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jeremy.wang@symphonyteleca.com (48R3959T95)";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/BabyQ/ShareSDK/Connection",
-					"$(PROJECT_DIR)/BabyQ/ShareSDK/Core",
-					"$(PROJECT_DIR)/BabyQ/ShareSDK/Extend/QQConnectSDK",
-					"$(PROJECT_DIR)/BabyQ/ShareSDK",
-					"$(PROJECT_DIR)/BabyQ/ShareSDK/UI",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = BabyQ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/BabyQ/ShareSDK/Extend/SinaWeiboSDK",
-					"$(PROJECT_DIR)/BabyQ/ShareSDK/Extend/WeChatSDK",
-					"$(PROJECT_DIR)/BabyQ/Videolib",
 					"$(PROJECT_DIR)/BabyQ/Video_libs",
 					"$(PROJECT_DIR)/BabyQ/Video_libs/openssl/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.chendufuyou.BabyQ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.symphonyteleca.BabyQ;
 				PRODUCT_NAME = "乖宝宝";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "f313f48f-9666-44f2-a4a9-225fe044084d";
 			};
 			name = Debug;
 		};
@@ -1326,31 +1320,21 @@
 			baseConfigurationReference = FA399C14657C2244DB5B6294 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SymphonyTeleca(Chengdu) Solutions Co., Ltd. (DD6C2YQSJ9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SymphonyTeleca(Chengdu) Solutions Co., Ltd. (DD6C2YQSJ9)";
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/BabyQ/ShareSDK/Connection",
-					"$(PROJECT_DIR)/BabyQ/ShareSDK/Core",
-					"$(PROJECT_DIR)/BabyQ/ShareSDK/Extend/QQConnectSDK",
-					"$(PROJECT_DIR)/BabyQ/ShareSDK",
-					"$(PROJECT_DIR)/BabyQ/ShareSDK/UI",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = BabyQ/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/BabyQ/ShareSDK/Extend/SinaWeiboSDK",
-					"$(PROJECT_DIR)/BabyQ/ShareSDK/Extend/WeChatSDK",
-					"$(PROJECT_DIR)/BabyQ/Videolib",
 					"$(PROJECT_DIR)/BabyQ/Video_libs",
 					"$(PROJECT_DIR)/BabyQ/Video_libs/openssl/lib",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.chendufuyou.BabyQ;
+				PRODUCT_BUNDLE_IDENTIFIER = com.symphonyteleca.BabyQ;
 				PRODUCT_NAME = "乖宝宝";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "f313f48f-9666-44f2-a4a9-225fe044084d";
 			};
 			name = Release;
 		};

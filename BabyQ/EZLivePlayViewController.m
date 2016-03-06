@@ -370,7 +370,7 @@
                     
                     NSString *smsCode = [[[alertController textFields] objectAtIndex:0] text];
                     //验证输入的安全短信验证码
-                    [EZOpenSDK secureSmsValidate:smsCode completion:^(NSError *error) {
+                    [EZOpenSDK validateSecureSMSCode:smsCode completion:^(NSError *error) {
                         if (!error)
                         {
                             [_player startRealPlay];

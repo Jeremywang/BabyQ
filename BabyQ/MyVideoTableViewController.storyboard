@@ -362,7 +362,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="VideoBackground.png" width="2001" height="3555"/>
+        <image name="VideoBackground.png" width="435" height="771"/>
         <image name="large_back_btn" width="10" height="19"/>
         <image name="offline" width="28" height="28"/>
         <image name="picture_bg" width="61" height="93"/>

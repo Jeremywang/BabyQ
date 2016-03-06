@@ -58,9 +58,7 @@
                                    [[UIMenuItem alloc] initWithTitle:@"复制" action:NSSelectorFromString(@"copyText:")],
                                    [[UIMenuItem alloc] initWithTitle:@"删除" action:NSSelectorFromString(@"deleteObject:")]
                                    ]];
-    
-    /************ 检测通知 **************/
-    [self registerAPNS];
+
     
     
     //萤石
@@ -240,34 +238,6 @@
     
 }
 
-
-- (void)registerAPNS
-{
-    NSLog(@"Registering for push notifications...");
-    
-    if ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
-    {
-        [[UIApplication sharedApplication] registerUserNotificationSettings:[UIUserNotificationSettings settingsForTypes:UIUserNotificationTypeBadge|UIUserNotificationTypeSound|UIUserNotificationTypeAlert categories:nil]];
-        [[UIApplication sharedApplication] registerForRemoteNotifications];
-    }
-    else
-    {
-        [[UIApplication sharedApplication] registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge | UIUserNotificationTypeSound | UIUserNotificationTypeAlert)];
-    }
-}
-
-
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
-{
-    NSLog(@"注册APNS TOKEN成功：%@,%lu",deviceToken,(unsigned long)deviceToken.length);
-    
-    //    NSString *newToken = [NSString stringWithFormat:@"%@",deviceToken];
-    //    [[EZPushService sharedService] setAPNSToken:newToken pushSecret:EZPushAppSecret];
-}
-
-- (void)application:(UIApplication *)app didFailToRegisterForRemoteNotificationsWithError:(NSError *)err {
-    NSLog(@"注册失败，无法获取设备ID: %@",err);
-}
 
 
 @end

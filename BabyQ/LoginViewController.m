@@ -141,6 +141,10 @@ static NSString * const kShowAccountOperation = @"ShowAccountOperation";
     _inputusername = _accountField.text;
     _inputpassword = _passwordField.text;
     
+    _hud = [Utils createHUD];
+    _hud.labelText = @"登录中";
+    _hud.userInteractionEnabled = NO;
+    
     [self LoginRequest];
     
 
@@ -594,6 +598,7 @@ static NSString * const kShowAccountOperation = @"ShowAccountOperation";
     NSString *url=@"http://101.200.165.91:8923/web_api/Account/UserLogin";
     //发送请求
     [manager POST:url parameters:requestDic success:^(AFHTTPRequestOperation *operation, id responseObject) {
+        [_hud hide:YES];
         NSLog(@"JSON: %@", responseObject);
         NSDictionary *responseDic = [NSDictionary dictionaryWithDictionary:responseObject];
         
@@ -672,6 +677,7 @@ static NSString * const kShowAccountOperation = @"ShowAccountOperation";
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error: %@", error);
         
+        [_hud hide:YES];
         _hud = [Utils createHUD];
         _hud.labelText = @"服务器链接超时";
         _hud.userInteractionEnabled = NO;

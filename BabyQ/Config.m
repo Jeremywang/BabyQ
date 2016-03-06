@@ -115,12 +115,12 @@ NSString * const kUserName = @"userNameStr";
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     
-    NSString *userName = [userDefaults objectForKey:kUserName];
-    NSNumber *score = [userDefaults objectForKey:kUserScore];
+    NSString *userName      = [userDefaults objectForKey:kUserName];
+    NSNumber *score         = [userDefaults objectForKey:kUserScore];
     NSNumber *favoriteCount = [userDefaults objectForKey:kFavoriteCount];
-    NSNumber *fans = [userDefaults objectForKey:kFanCount];
-    NSNumber *follower = [userDefaults objectForKey:kFollowerCount];
-    NSNumber *userID = [userDefaults objectForKey:kUserID];
+    NSNumber *fans          = [userDefaults objectForKey:kFanCount];
+    NSNumber *follower      = [userDefaults objectForKey:kFollowerCount];
+    NSNumber *userID        = [userDefaults objectForKey:kUserID];
     if (userName) {
         return @[userName, score, favoriteCount, follower, fans, userID];
     }
@@ -132,7 +132,7 @@ NSString * const kUserName = @"userNameStr";
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:@(isLogin) forKey:kLoginStatus];
-    
+
     [userDefaults synchronize];
 }
 
@@ -140,7 +140,7 @@ NSString * const kUserName = @"userNameStr";
 + (BOOL)get_login_status
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    BOOL loginStatus = [[userDefaults objectForKey:kLoginStatus] boolValue];
+    BOOL loginStatus             = [[userDefaults objectForKey:kLoginStatus] boolValue];
     
     return loginStatus;
 }
@@ -160,8 +160,8 @@ NSString * const kUserName = @"userNameStr";
 + (NSDictionary *)get_user_info_dictionary
 {
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *userInfoDic = [userDefaults objectForKey:kUserInfoDictionary];
-    
+    NSDictionary *userInfoDic    = [userDefaults objectForKey:kUserInfoDictionary];
+
     return userInfoDic;
 }
 

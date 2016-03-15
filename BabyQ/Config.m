@@ -10,35 +10,37 @@
 #import <SSKeychain.h>
 
 
-NSString * const kService = @"OSChina";
-NSString * const kAccount = @"account";
-NSString * const kUserID = @"userID";
+NSString * const kService            = @"OSChina";
+NSString * const kAccount            = @"account";
+NSString * const kUserID             = @"userID";
 
 //NSString * const kUserName = @"name";
-NSString * const kPortrait = @"portrait";
-NSString * const kUserScore = @"score";
-NSString * const kFavoriteCount = @"favoritecount";
-NSString * const kFanCount = @"fans";
-NSString * const kFollowerCount = @"followers";
+NSString * const kPortrait           = @"portrait";
+NSString * const kUserScore          = @"score";
+NSString * const kFavoriteCount      = @"favoritecount";
+NSString * const kFanCount           = @"fans";
+NSString * const kFollowerCount      = @"followers";
 
-NSString * const kJointime = @"jointime";
-NSString * const kDevelopPlatform = @"devplatform";
-NSString * const kExpertise = @"expertise";
-NSString * const kHometown = @"from";
+NSString * const kJointime           = @"jointime";
+NSString * const kDevelopPlatform    = @"devplatform";
+NSString * const kExpertise          = @"expertise";
+NSString * const kHometown           = @"from";
 
-NSString * const kTrueName = @"trueName";
-NSString * const kSex = @"sex";
-NSString * const kPhoneNumber = @"phoneNumber";
-NSString * const kCorporation = @"corporation";
-NSString * const kPosition = @"position";
+NSString * const kTrueName           = @"trueName";
+NSString * const kSex                = @"sex";
+NSString * const kPhoneNumber        = @"phoneNumber";
+NSString * const kCorporation        = @"corporation";
+NSString * const kPosition           = @"position";
 
-NSString * const kTeamID = @"teamID";
-NSString * const kTeamsArray = @"teams";
+NSString * const kTeamID             = @"teamID";
+NSString * const kTeamsArray         = @"teams";
 
-NSString * const kLoginStatus = @"loginStatus";
+NSString * const kLoginStatus        = @"loginStatus";
 
 NSString * const kUserInfoDictionary = @"userInfoDictionary";
-NSString * const kUserName = @"userNameStr";
+NSString * const kUserName           = @"userNameStr";
+NSString * const kSchoolName         = @"schoolNameStr";
+NSString * const kNeedRefresh        = @"needrefresh";
 
 #if TARGET_IPHONE_SIMULATOR
 #define SIMULATOR 1
@@ -182,6 +184,44 @@ NSString * const kUserName = @"userNameStr";
     NSString *userName = [userDefaults objectForKey:kUserName];
     
     return userName;
+}
+
+//存储学校名字
+
++ (void)save_school_name:(NSString *)schoolNameStr
+{
+    NSUserDefaults *schoolDefaults = [NSUserDefaults standardUserDefaults];
+    [schoolDefaults setObject:schoolNameStr forKey:kSchoolName];
+    
+    [schoolDefaults synchronize];
+}
+
+//获取学校名字
+
++ (NSString *)get_school_name
+{
+    NSUserDefaults *schoolDefaults = [NSUserDefaults standardUserDefaults];
+    NSString *schoolName = [schoolDefaults objectForKey:kSchoolName];
+    
+    return schoolName;
+}
+
+//存储是否需要刷新
+
++ (void)save_needrefreshAction:(BOOL)needRefrsh
+{
+    NSUserDefaults *needrefreshDefaults = [NSUserDefaults standardUserDefaults];
+    [needrefreshDefaults setBool:needRefrsh forKey:kNeedRefresh];
+    [needrefreshDefaults synchronize];
+}
+
+//获取是否需要刷新
+
++ (BOOL)get_needrefreshAction
+{
+    NSUserDefaults *needrefreshDefaults = [NSUserDefaults standardUserDefaults];
+    BOOL needRefresh = [needrefreshDefaults boolForKey:kNeedRefresh];
+    return needRefresh;
 }
 
 @end

@@ -426,6 +426,7 @@
         case 3: { //注销帐号 or 登录
             if ([Config get_login_status]) {
                 [Config save_login_status:NO];
+                [Config save_needrefreshAction:YES];
                 
                 [EZOpenSDK logout:^(NSError *error) {
                     [[GlobalKit shareKit] clearSession];

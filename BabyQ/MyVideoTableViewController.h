@@ -10,6 +10,6 @@
 
 @interface MyVideoTableViewController : UITableViewController
 
-@property (nonatomic) BOOL needRefresh;
+//@property (nonatomic) BOOL needRefresh;
 
 @end

@@ -82,27 +82,33 @@
     self.tableView.opaque = NO; //(2) (1,2)两行不要也行，背景图片也能显示
     self.tableView.backgroundView = imageView;
     
-    
     if(!_remoteCameraList)
+    {
         _remoteCameraList = [NSMutableArray new];
+    }
     
     if (!_userCameraList) {
         _userCameraList = [NSMutableArray new];
     }
     
-    _userInfoDictionary = [Config get_user_info_dictionary];
-    _schoolName = _userInfoDictionary[@"result"][@"Schoolname"];
-    _userName = _userInfoDictionary[@"result"][@"name"];
-    [Config save_user_name:_userName];
     
-    _localCameraList = _userInfoDictionary[@"result"][@"CameraList"];
-    //self.title = _schoolName;
-    self.navigationItem.title = _schoolName;
+    _userInfoDictionary = [Config get_user_info_dictionary];
+    
 
+    _localCameraList = _userInfoDictionary[@"result"][@"CameraList"];
+    
+    
     NSLog(@"Video list json:%@", _userInfoDictionary);
     NSLog(@"Local camera list:%@", _localCameraList);
     
+    _schoolName = [Config get_school_name];
+    
+    self.navigationItem.title = _schoolName;
+    
+    [Config save_needrefreshAction:NO];
+    
     [self GetServerTime];
+    
     
 //    if([GlobalKit shareKit].accessToken)
 //    {
@@ -137,10 +143,32 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    if(_needRefresh)
+    if([Config get_needrefreshAction])
     {
-        _needRefresh = NO;
-//        /[self.tableView.mj_header beginRefreshing];
+        
+        if(!_remoteCameraList)
+        {
+            _remoteCameraList = [NSMutableArray new];
+        }
+        
+        if (!_userCameraList) {
+            _userCameraList = [NSMutableArray new];
+        }
+        
+        _userInfoDictionary = [Config get_user_info_dictionary];
+        
+        _localCameraList = _userInfoDictionary[@"result"][@"CameraList"];
+        
+        
+        NSLog(@"Video list json:%@", _userInfoDictionary);
+        NSLog(@"Local camera list:%@", _localCameraList);
+        
+        _schoolName = [Config get_school_name];
+        
+       self.navigationItem.title = _schoolName;
+        
+        [Config save_needrefreshAction:NO];
+        
         [self GetServerTime];
     }
 
@@ -284,7 +312,7 @@
                           [weakSelf addFooter];
                           
                           dispatch_async(dispatch_get_main_queue(), ^{
-                              _needRefresh = NO;
+                              [Config save_needrefreshAction:NO];
                               [_hud hide:YES];
                           });
                       }];
@@ -471,7 +499,7 @@
             NSLog(@"post1 error is :%@",error.localizedDescription);
             
             dispatch_async(dispatch_get_main_queue(), ^{
-                _needRefresh = YES;
+                [Config save_needrefreshAction:YES];
                 [_hud hide:YES];
                 _hud = [Utils createHUD];
                 _hud.labelText = @"数据获取出错";
@@ -537,7 +565,7 @@
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Error: %@", error);
             dispatch_async(dispatch_get_main_queue(), ^{
-                _needRefresh = YES;
+                [Config save_needrefreshAction:YES];
                 [_hud hide:YES];
                 _hud = [Utils createHUD];
                 _hud.labelText = @"数据获取出错";

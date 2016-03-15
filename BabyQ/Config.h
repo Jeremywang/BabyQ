@@ -43,4 +43,13 @@
 + (NSString *)get_user_name;
 
 
+
++ (void)save_school_name:(NSString *)schoolNameStr;
+
++ (NSString *)get_school_name;
+
++ (void)save_needrefreshAction:(BOOL)needRefrsh;
+
++ (BOOL)get_needrefreshAction;
+
 @end

@@ -145,6 +145,8 @@ static NSString * const kShowAccountOperation = @"ShowAccountOperation";
     _hud.labelText = @"登录中";
     _hud.userInteractionEnabled = NO;
     
+    [Config save_needrefreshAction:YES];
+    
     [self LoginRequest];
     
 
@@ -609,6 +611,13 @@ static NSString * const kShowAccountOperation = @"ShowAccountOperation";
         if (errorCode == 200) {
             [Config save_user_info_dictionary:responseDic];
             [Config save_login_status:YES];
+
+            
+            NSString * userName = responseDic[@"result"][@"name"];
+            [Config save_user_name:userName];
+            
+            NSString * schoolName = responseDic[@"result"][@"Schoolname"];
+            [Config save_school_name:schoolName];
             
             _hud = [Utils createHUD];
             _hud.labelText = @"登录成功";

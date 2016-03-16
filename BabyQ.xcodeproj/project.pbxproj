@@ -1285,7 +1285,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				PROVISIONING_PROFILE = "f313f48f-9666-44f2-a4a9-225fe044084d";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1312,6 +1312,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.symphonyteleca.BabyQ;
 				PRODUCT_NAME = "乖宝宝";
 				PROVISIONING_PROFILE = "f313f48f-9666-44f2-a4a9-225fe044084d";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Debug;
 		};
@@ -1332,9 +1333,11 @@
 					"$(PROJECT_DIR)/BabyQ/Video_libs",
 					"$(PROJECT_DIR)/BabyQ/Video_libs/openssl/lib",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.symphonyteleca.BabyQ;
 				PRODUCT_NAME = "乖宝宝";
 				PROVISIONING_PROFILE = "f313f48f-9666-44f2-a4a9-225fe044084d";
+				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Release;
 		};

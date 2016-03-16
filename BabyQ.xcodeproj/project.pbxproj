@@ -1246,7 +1246,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "f313f48f-9666-44f2-a4a9-225fe044084d";
+				PROVISIONING_PROFILE = "94306055-16d9-4075-8580-47059a008202";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -1286,7 +1286,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				ONLY_ACTIVE_ARCH = NO;
-				PROVISIONING_PROFILE = "f313f48f-9666-44f2-a4a9-225fe044084d";
+				PROVISIONING_PROFILE = "94306055-16d9-4075-8580-47059a008202";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -1297,8 +1297,8 @@
 			baseConfigurationReference = 09A52127730D1A047168FD35 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: jeremy.wang@symphonyteleca.com (48R3959T95)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: jeremy.wang@symphonyteleca.com (48R3959T95)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = BabyQ/Info.plist;
@@ -1311,7 +1311,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.symphonyteleca.BabyQ;
 				PRODUCT_NAME = "乖宝宝";
-				PROVISIONING_PROFILE = "f313f48f-9666-44f2-a4a9-225fe044084d";
+				PROVISIONING_PROFILE = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Debug;
@@ -1321,8 +1321,8 @@
 			baseConfigurationReference = FA399C14657C2244DB5B6294 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: SymphonyTeleca(Chengdu) Solutions Co., Ltd. (DD6C2YQSJ9)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SymphonyTeleca(Chengdu) Solutions Co., Ltd. (DD6C2YQSJ9)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = BabyQ/Info.plist;
@@ -1336,7 +1336,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_BUNDLE_IDENTIFIER = com.symphonyteleca.BabyQ;
 				PRODUCT_NAME = "乖宝宝";
-				PROVISIONING_PROFILE = "f313f48f-9666-44f2-a4a9-225fe044084d";
+				PROVISIONING_PROFILE = "";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 			};
 			name = Release;

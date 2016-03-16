@@ -23,6 +23,7 @@
 
 #import <AFNetworking.h>
 
+
 #define EZCameraListPageSize 30
 
 @interface MyVideoTableViewController ()
@@ -362,9 +363,6 @@
 - (void)go2Play:(EZCameraInfo *)camera
 {
     
-    //判断当前网络状态
-    AppDelegate *appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-
     if(![camera isOnline])
     {
         UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"当前摄像头不在线，请观看其他摄像头" message:nil preferredStyle:UIAlertControllerStyleAlert];
@@ -378,10 +376,12 @@
     else
     {
     
-    if ([Config getWifiMode]) {
-        if ([appDelegate isWifi])
+    if ([Config getWifiMode])
+    {
+        if ([self isNetWorkReachableWIFI])
         {
-            if ([Config get_login_status]) {
+            if ([Config get_login_status])
+            {
                 UIStoryboard *mineSB = [UIStoryboard storyboardWithName:@"MyVideoTableViewController" bundle:nil];
                 EZLivePlayViewController *playController = [mineSB instantiateViewControllerWithIdentifier:@"PlayerController"];
                 
@@ -399,7 +399,8 @@
             }
 
         }
-        else{
+        else
+        {
             UIAlertController* alertController = [UIAlertController alertControllerWithTitle:@"当前不在WIFI网络下" message:nil preferredStyle:UIAlertControllerStyleAlert];
             UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:nil];
             [alertController addAction:okAction];
@@ -576,5 +577,10 @@
         }];
     
 }
+
+- (BOOL)isNetWorkReachableWIFI{
+    return [AFNetworkReachabilityManager sharedManager].isReachableViaWiFi;
+}
+
 
 @end

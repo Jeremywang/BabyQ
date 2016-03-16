@@ -11,8 +11,7 @@
 #import "UIColor+Util.h"
 #import "UIView+Util.h"
 #import "EZOpenSDK.h"
-#import "Reachability.h"
-
+#import <AFNetworking.h>
 
 
 @implementation AppDelegate
@@ -123,9 +122,31 @@
 //    } else {
 //        NSLog(@"用户文件已经存在！");
 //    }
+
+    AFNetworkReachabilityManager *afNetworkReachabilityManager = [AFNetworkReachabilityManager sharedManager];
+    [afNetworkReachabilityManager startMonitoring];  //开启网络监视器；
     
-    
-    
+    [afNetworkReachabilityManager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
+        
+        switch (status) {
+            case AFNetworkReachabilityStatusNotReachable:{
+                NSLog(@"BabyQ-网络不通:");
+                break;
+            }
+            case AFNetworkReachabilityStatusReachableViaWiFi:{
+                NSLog(@"BabyQ-网络通过WIFI连接");
+                break;
+            }
+                
+            case AFNetworkReachabilityStatusReachableViaWWAN:{
+                NSLog(@"BabyQ-网络通过流量连接");
+                break;
+            }
+            default:
+                break;
+        }
+        
+    }];
     //那怎么证明我的数据写入了呢？读出来看看
 //    NSMutableDictionary *data1 = [[NSMutableDictionary alloc] initWithContentsOfFile:filename];
 //    NSLog(@"data1====%@", data1);
@@ -180,6 +201,8 @@
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
+
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {

@@ -393,6 +393,8 @@
 		3FC2A5851C17405A0085BE96 /* BabyQ.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BabyQ.pch; sourceTree = "<group>"; };
 		3FC2A5861C1740840085BE96 /* EZRecordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EZRecordCell.h; sourceTree = "<group>"; };
 		3FC2A5871C1740840085BE96 /* EZRecordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EZRecordCell.m; sourceTree = "<group>"; };
+		3FD6BDB81C99BB1A00AFE87F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		3FD6BDB91C99BB1A00AFE87F /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		3FDE641E1C20606400885E25 /* ChangePasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangePasswordViewController.h; sourceTree = "<group>"; };
 		3FDE641F1C20606400885E25 /* ChangePasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangePasswordViewController.m; sourceTree = "<group>"; };
 		3FDE64211C2060A000885E25 /* ChangePassword.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = ChangePassword.storyboard; sourceTree = "<group>"; };
@@ -1016,11 +1018,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
-				"en-US",
-				"zh-Hans-CN",
-				"zh-Hans",
 			);
 			mainGroup = 3F72A75B1C14606200371B17;
 			productRefGroup = 3F72A7651C14606200371B17 /* Products */;
@@ -1190,6 +1188,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				3F1238EE1C15B38000E9962E /* Base */,
+				3FD6BDB81C99BB1A00AFE87F /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1198,6 +1197,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				3F72A7791C14606300371B17 /* Base */,
+				3FD6BDB91C99BB1A00AFE87F /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";

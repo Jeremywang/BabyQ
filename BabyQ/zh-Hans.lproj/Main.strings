@@ -1,0 +1,9 @@
+
+/* Class = "UITextField"; placeholder = "密码"; ObjectID = "K8q-u7-TE6"; */
+"K8q-u7-TE6.placeholder" = "密码";
+
+/* Class = "UITextField"; placeholder = "用户名"; ObjectID = "QUC-o0-81b"; */
+"QUC-o0-81b.placeholder" = "用户名";
+
+/* Class = "UINavigationItem"; title = "登录"; ObjectID = "Rj3-Cq-s4A"; */
+"Rj3-Cq-s4A.title" = "登录";

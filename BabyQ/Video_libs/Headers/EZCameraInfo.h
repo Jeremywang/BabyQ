@@ -39,7 +39,7 @@
  */
 @property (nonatomic) BOOL isEncrypt;
 /**
- *  是否是分享设备
+ *  分享状态：0、未分享，1、分享所有者，2、分享接受者（表示此摄像头是别人分享给我的）
  */
 @property (nonatomic) NSInteger isShared;
 /**
@@ -55,7 +55,7 @@
  */
 @property (nonatomic) BOOL isDefence;
 /**
- *  视频清晰度
+ *  视频清晰度：0、流畅，1、均衡，2、高清
  */
 @property (nonatomic) NSInteger videoLevel;
 

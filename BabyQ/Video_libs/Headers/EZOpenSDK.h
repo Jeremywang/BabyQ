@@ -10,7 +10,7 @@
 
 /* EZOpenSDK的错误定义 */
 typedef NS_ENUM(NSInteger, EZErrorCode) {
-    EZ_DEVICE_OFFLINE = 400121,  //设备不在线
+    EZ_DEVICE_OFFLINE = 380121,  //设备不在线
     EZ_PLAY_TIMEOUT = 380209,    //网络连接超时
     EZ_DEVICE_TIMEOUT = 380212,  //设备端网络连接超时
     EZ_DEVICE_CONNECT_COUNT_LARGEST = 340410, //设备取流连接数量超过最大值
@@ -41,6 +41,7 @@ typedef NS_ENUM(NSInteger, EZErrorCode) {
     EZ_HTTPS_DEVICE_OFFLINE_IS_ADDED = 120024, //设备不在线，已经被别的用户添加
     EZ_HTTPS_DEVICE_OFFLINE_IS_ADDED_MYSELF = 120029, //设备不在线，但是已经被自己添加
     EZ_HTTPS_OPERATE_LEAVE_MSG_FAIL = 120202, //操作留言消息失败
+    EZ_HTTPS_DEVICE_BUNDEL_STATUS_ON = 120031, //设备开启了终端绑定，请到萤石云客户端关闭终端绑定
     EZ_HTTPS_SERVER_DATA_ERROR = 149999, //数据异常
     EZ_HTTPS_SERVER_ERROR = 150000, //服务器异常
     /**
@@ -49,6 +50,7 @@ typedef NS_ENUM(NSInteger, EZErrorCode) {
     EZ_SDK_TALK_DOING = 400077, //对讲进行中，请稍候再试
     EZ_SDK_CAMERAID_NOTEXIST = 400404, //cameraId不存在，请重新获取设备信息
     EZ_SDK_PARAM_ERROR = 400500, //接口参数错误
+    EZ_SDK_STREAM_TIMEOUT = 401011, //取流连接超时，请检查摄像头的网络状态
 };
 
 /* 播放器状态消息 */
@@ -58,6 +60,8 @@ typedef NS_ENUM(NSInteger, EZMessageCode)
     PLAYER_REALPLAY_START = 1,   //直播开始
     PLAYER_VIDEOLEVEL_CHANGE = 2, //直播流清晰度切换中
     PLAYER_STREAM_RECONNECT = 3,  //直播流取流正在重连
+    PLAYER_VOICE_TALK_START = 4,  //对讲开始
+    PLAYER_VOICE_TALK_END = 5,  //对讲结束
     PLAYER_PLAYBACK_START = 11, //录像回放开始播放
     PLAYER_PLAYBACK_STOP = 12   //录像回放结束播放
 };
@@ -210,7 +214,7 @@ typedef NS_ENUM(NSInteger, EZSMSType) {
                     completion:(void (^)(NSArray *cameraList, NSError *error))completion;
 /**
  *  @since 3.0.0
- *  获取设备详细信息
+ *  获取设备详细信息，使用该接口时要注意cameraId必须来自SDK获取cameraInfo以后得到的cameraId。如果是服务端获取的cameraId很有可能收到400500的错误
  *
  *  @param cameraId  设备摄像头id
  *  @param completion  回调block
@@ -675,7 +679,7 @@ typedef NS_ENUM(NSInteger, EZSMSType) {
  *
  *  @param isEncrypt    是否加密
  *  @param deviceSerial 设备序列号
- *  @param smsCode      绑定手机号收到的设备操作短信验证码
+ *  @param smsCode      绑定手机号收到的设备操作短信验证码，关闭视频加密的时候smsCode才是必填
  *  @param completion   回调block
  *
  *  @return operation

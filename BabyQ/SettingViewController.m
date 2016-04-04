@@ -223,6 +223,7 @@
     success = [fileManager fileExistsAtPath:imageFilePath];
     if(success) {
         success = [fileManager removeItemAtPath:imageFilePath error:&error];
+        NSLog(@"remove %@ = %@", imageFilePath, success?@"succes":@"failed");
     }
     //    UIImage *smallImage=[self scaleFromImage:image toSize:CGSizeMake(80.0f, 80.0f)];//将图片尺寸改为80*80
     UIImage *smallImage = [self thumbnailWithImageWithoutScale:image size:CGSizeMake(200, 200)];

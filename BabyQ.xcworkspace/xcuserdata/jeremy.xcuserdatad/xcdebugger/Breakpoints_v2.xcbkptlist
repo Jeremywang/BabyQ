@@ -120,7 +120,7 @@
                   moduleName = "&#x4e56;&#x5b9d;&#x5b9d;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jeremy/GitHub/BabyQ/BabyQ/MyVideoTableViewController.m"
-                  timestampString = "481434406.374028"
+                  timestampString = "486439788.637182"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
@@ -135,12 +135,12 @@
                   moduleName = "&#x4e56;&#x5b9d;&#x5b9d;"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/jeremy/GitHub/BabyQ/BabyQ/MyVideoTableViewController.m"
-                  timestampString = "481434406.374281"
+                  timestampString = "486439788.637413"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "32">
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "64">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -152,11 +152,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BabyQ/EZLivePlayViewController.m"
-            timestampString = "474906620.801852"
+            timestampString = "486439787.345202"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "464"
-            endingLineNumber = "464"
+            startingLineNumber = "466"
+            endingLineNumber = "466"
             landmarkName = "-playButtonClicked:"
             landmarkType = "5">
          </BreakpointContent>
@@ -168,11 +168,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "BabyQ/EZLivePlayViewController.m"
-            timestampString = "474906620.801852"
+            timestampString = "486439787.345202"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "480"
-            endingLineNumber = "480"
+            startingLineNumber = "482"
+            endingLineNumber = "482"
             landmarkName = "-playButtonClicked:"
             landmarkType = "5">
          </BreakpointContent>

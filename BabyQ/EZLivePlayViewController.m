@@ -140,6 +140,8 @@
 //            self.controlButton.enabled = YES;
 //        }
 //    }];
+    [self.qualityButton setHidden:YES];
+    
     _player = [EZPlayer createPlayerWithCameraId:_cameraId];
     _player.delegate = self;
     [_player setVideoLevel:EZVideoQualityLow];
